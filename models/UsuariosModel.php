@@ -73,7 +73,7 @@
 				$usuario=htmlentities(addslashes($_POST["Usuario"]));
 				$contrasena=htmlentities(addslashes($_POST["Contrasena"]));
 
-				$base=new PDO("mysql:host=localhost; dbname=sistemweb" , "root", "");
+				$base=new PDO("mysql:host=us-cdbr-east-05.cleardb.net; dbname=heroku_1f5ff059f1d7813" , "b99c4da36713e8", "362d39c9");
   
 				$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);				  
 				$sql="SELECT * FROM usuarios WHERE Usuario= '$usuario' AND Estado = 1";		  
