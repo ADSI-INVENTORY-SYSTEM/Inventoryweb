@@ -1,0 +1,86 @@
+table {
+    border-collapse: collapse;
+    font-size: 9.9pt;
+    width: 50%;
+    padding: 10px;
+}
+table th {
+    text-align: center;
+    padding: 10px;
+    background: blue;
+    color: white;
+}
+table td {
+    padding: 10px;
+}
+table tr:nth-child(odd) {
+    background: gray;
+}
+.ntn_agregar {
+    border: all;
+    padding: 30px;
+    text-align: left;
+}
+.tablareporte {
+    border-collapse: collapse;
+    padding: 20px;
+}
+
+img{
+    width: 50px;
+}
+#btn-adAdmin{
+    padding: 10px;
+    margin-left: 10px;
+    margin-block-start: 25px;
+    margin-block-end: 10px;
+    position: relative;
+    
+}
+.btn-ver{
+    background: transparent;
+    color: #3F51B5;
+    float: right;
+
+}
+#btn-generar{
+    padding: 3px;
+    background: rgba(236, 106, 106, 0.842);
+    float: rigth;
+    margin-block-end:25px;
+}
+
+.iniciale{
+    margin-block-start: 25px;
+    padding: 6px;
+}
+.finale{
+    margin-block-start: 25px;
+    padding: 6px;
+}
+
+.paginador ul {
+    padding: 15px;
+    list-style: none;
+    background: #FFF;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+.paginador a, .paginaseleccionada {
+    color: #428bca;
+    border: 1px solid #ddd;
+    padding: 5px;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    width: 35px;
+}
+.paginador a:hover {
+    background: #ddd;
+}
+.paginaseleccionada {
+    color: #FFF;
+    background: #428bca;
+    border: 1px solid #428bca;
+}
