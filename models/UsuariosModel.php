@@ -113,7 +113,7 @@
 				      </script>';
 				}
 			}
-			catch(Exepcion $e)
+			catch(Exepction $e)
 			{
 				die("Error:" . $e ->getMessage());
 			}

@@ -9,10 +9,10 @@ class conexiondatos
 
 	public function conexiondatos()
       {
-	     $this->server = "Localhost";
-	     $this->usuario = "root";
-	     $this->contrasena  ="";
-	     $this->BaseDeDatos = "sistemweb";
+	     $this->server = "us-cdbr-east-05.cleardb.net";
+	     $this->usuario = "b99c4da36713e8";
+	     $this->contrasena  ="362d39c9";
+	     $this->BaseDeDatos = "heroku_1f5ff059f1d7813";
 
       }
 
