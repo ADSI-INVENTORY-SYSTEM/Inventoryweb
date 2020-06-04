@@ -36,6 +36,9 @@
 				Ingresar <i class="zmdi zmdi-mail-send"></i>
 			</button>
 			<br>
+			<div class="d-flex justify-content-center links">
+                  <a href="index1.php?c=Usuarios&a=nuevoAprendiz" class="ml-2">Registrarme</a>
+               </div>
 		</form>
 	</div>
 </body>
