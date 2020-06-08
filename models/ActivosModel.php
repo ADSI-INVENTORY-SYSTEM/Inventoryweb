@@ -45,7 +45,7 @@
                 date_default_timezone_set("america/bogota"); 
 				$fecha_registro  =date('Y-m-d H:i:s');
                
-                $ruta = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
+                $ruta = $_SERVER['DOCUMENT_ROOT'] . 'uploads';
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta . $nombreima);
     
                 $resultado = $this->db->query("INSERT INTO activos (Nserial,Sede_idSede,Proveedor_idProveedor,Categoria_idcategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen,Fecha_registro) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombre',$precio,$cantidad,'$nombreima','$fecha_registro')");
