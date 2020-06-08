@@ -1,8 +1,11 @@
 <?php
 
 session_start();
-require_once("ConexionDatos.php");
-require("Fpdf/Fpdf.php");
+require "config/database.php";
+require "Fpdf/fpdf.php";
+
+$conbsd=new Conectar();
+$con3=$conbsd->conexion();
 
 
 
@@ -11,8 +14,6 @@ $I=$_POST['Estado_idEstado'];
 
 																														
 
-$conbsd=new conexiondatos();
-$con3=$conbsd->conectar();
 
 
 $pdf= new FPDF('p','mm', array(500,500));
