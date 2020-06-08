@@ -3,7 +3,7 @@
 	require_once ("config/configT.php");
 	require_once ("core/routesM.php");
 	require_once ("config/database.php");
-	require_once ("controllers/accesorio.php");
+	require_once ("controllers/Accesorio.php");
 	
 	if(isset($_GET['c'])){
 		

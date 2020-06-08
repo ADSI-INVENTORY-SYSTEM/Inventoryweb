@@ -35,7 +35,7 @@
 					</p>
 				</div>
 			</section>
-            <section class="full-width text-center" >
+            <section class="full-width text-center">
 				<?php foreach($data["accesorio"] as $dato) {
 					echo"
 					<div class='mdl-card mdl-shadow--4dp full-width product-card'>
@@ -55,8 +55,10 @@
 								<i class='zmdi zmdi-plus'></i>
 							</button>
 							</a>
+							<div class='mdl-tooltip'>Solicitar Activo</div>
 						</div>
 					</div>";
+				}
 				?>
 			</section>
 		</section>	
