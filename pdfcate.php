@@ -2,7 +2,7 @@
 
 session_start();
 require_once("config/database.php");
-require_once("Fpdf/Fpdf.php");
+include("Fpdf/Fpdf.php");
 
 $conbsd=new Conectar();
 $con3=$conbsd->conexion();
