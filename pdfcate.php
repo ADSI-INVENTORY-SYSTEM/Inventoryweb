@@ -4,16 +4,13 @@ session_start();
 require_once("ConexionDatos.php");
 require("Fpdf/Fpdf.php");
 
-
+$conbsd=new conexiondatos();
+//$con3=$conbsd->conectar();
 
 $I=$_POST['Categoria_idcategoria'];
 //$O=$_POST['o'];
 
-																														
-
-$conbsd=new conexiondatos();
-$con3=$conbsd->conectar();
-
+																													
 
 $pdf= new FPDF('p','mm', array(500,500));
 $pdff=new FPDF();
