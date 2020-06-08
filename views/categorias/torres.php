@@ -35,7 +35,7 @@
 					</p>
 				</div>
 			</section>
-            <section class="full-width text-center" style="padding:10px; margin-block-start:1px; margin-left: 120px;">
+            <section class="full-width text-center">
 				<?php foreach($data["torres"] as $dato) {
 					echo"
 					<div class='mdl-card mdl-shadow--4dp full-width product-card'>
