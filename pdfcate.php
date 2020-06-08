@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-require_once("ConexionDatos.php");
-require("Fpdf/Fpdf.php");
+require_once("config/database.php");
+require_once("Fpdf/Fpdf.php");
 
-$conbsd=new conexiondatos();
-$con3=$conbsd->conectar();
+$conbsd=new Conectar();
+$con3=$conbsd->conexion();
 
 $I=$_POST['Categoria_idcategoria'];
 //$O=$_POST['o'];
