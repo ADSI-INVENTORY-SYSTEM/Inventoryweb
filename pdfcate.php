@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-include "plantillapdfcate.php";
 require "config/database.php";
 require "Fpdf/fpdf.php";
 
@@ -13,17 +12,17 @@ $I=$_POST['Categoria_idcategoria'];
 
 																													
 
-//$pdf= new FPDF('p','mm', array(500,500));
-//$pdff=new FPDF();
+$pdf= new FPDF('p','mm', array(500,500));
+$pdff=new FPDF();
 
 
-/*$pdf->setmargins(40,0);
+$pdf->setmargins(40,0);
 $pdf->aliasnbpages();
 
-$pdf->addpage('');*/
+$pdf->addpage('');
 
 $pdf->settextcolor(0x00,0x00,0x00);
-$pdf->setfont("courier","B",25);
+$pdf->setfont("courier","",25);
 $pdf->setxy(60,30);
 $pdf->multicell(100,20, utf8_decode('Activos'),0,'C');
 $pdf->Cell(100,20,'Reporte generado por:|'.$_SESSION['usuari'].'',0,'C');
