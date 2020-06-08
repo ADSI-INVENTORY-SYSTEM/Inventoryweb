@@ -5,7 +5,7 @@ require_once("ConexionDatos.php");
 require("Fpdf/Fpdf.php");
 
 $conbsd=new conexiondatos();
-//$con3=$conbsd->conectar();
+$con3=$conbsd->conectar();
 
 $I=$_POST['Categoria_idcategoria'];
 //$O=$_POST['o'];
