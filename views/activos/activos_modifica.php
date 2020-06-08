@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Nuevo Activo</title>
+		<title>Modificar Activo</title>
 		<link rel="stylesheet" type="text/css" href="estilodelistas.css">
 		<?php include 'scripts.php'; ?>
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
