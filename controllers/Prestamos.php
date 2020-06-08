@@ -50,12 +50,11 @@
 		{
 			$id = $_POST['idPrestamo'];
 			$activo = $_POST['Activos_idActivo'];
-			$usuario = $_POST['Usuarios_idUsuario'];
 			$fechae = $_POST['inicial'];
 			$fechad = $_POST['final'];
 
 			$prestamos = new Prestamos_model();
-			$prestamos->modificar($id,$activo,$usuario,$fechae,$fechad);
+			$prestamos->modificar($id,$activo,$fechae,$fechad);
 			$data["titulo"] = "Prestamos";
 			$this->index();
 		}

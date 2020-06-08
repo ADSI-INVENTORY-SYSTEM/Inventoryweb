@@ -44,7 +44,9 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM sede");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
-					<select name="Sede_idSede" id="Sede_idSede">
+					<label for="serial">Ubicación: </label>
+					<select class="selecto" name="Sede_idSede" id="Sede_idSede">
+						<option value="<?php echo $data["usuarios"]["Sede_idSede"]; ?>"selected><?php echo $data["usuarios"]["NombreSede"];?></option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($sede= mysqli_fetch_array($resultado)){
@@ -73,7 +75,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM rol");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
-					<select name="Rol_idRol" id="Rol_idRol">
+					<div class="form-group">
+					<label for="serial">Rol: </label>
+					<select class="selecto" name="Rol_idRol" id="Rol_idRol">
+					<option value="<?php echo $data["usuarios"]["Rol_idRol"]; ?>"selected><?php echo $data["usuarios"]["NombreRol"];?></option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($rol= mysqli_fetch_array($resultado)){
@@ -84,7 +89,8 @@
 						}
 						?>
 					</select>
-					
+					</div>
+
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -92,7 +98,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM TipoIdentificacion");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
-					<select name="TipoIdentificacion_idTipoIdentificacion" id="TipoIdentificacion_idTipoIdentificacion">
+					<div class="form-group">
+					<label for="serial">Tipo de Identificación: </label>
+					<select class="selecto" name="TipoIdentificacion_idTipoIdentificacion" id="TipoIdentificacion_idTipoIdentificacion">
+					<option value="<?php echo $data["usuarios"]["TipoIdentificacion_idTipoIdentificacion"]; ?>"selected><?php echo $data["usuarios"]["NombreIdentificacion"];?></option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($ti= mysqli_fetch_array($resultado)){
@@ -103,7 +112,7 @@
 						}
 						?>
 					</select>
-
+					</div>	
 					<div class="form-group">
 						<label for="Direccion">Direccion</label>
 						<input type="text" class="form-control" id="Direccion" name="Direccion" value="<?php echo $data["usuarios"]["Direccion"]?>" />

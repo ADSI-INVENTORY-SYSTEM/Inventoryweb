@@ -39,14 +39,14 @@
             }
             else
             {
-                $nombreima = $_FILES['imagen']['name'];
-                $tipoima = $_FILES['imagen']['type'];
-                $tamanoima = $_FILES['imagen']['size'];
+                $nombreima = $_FILES['foto']['name'];
+                $tipoima = $_FILES['foto']['type'];
+                $tamanoima = $_FILES['foto']['size'];
                 date_default_timezone_set("america/bogota"); 
 				$fecha_registro  =date('Y-m-d H:i:s');
                
-                $ruta = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
-                move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta . $nombreima);
+                $ruta = $_SERVER['DOCUMENT_ROOT'] . '../uploads/';
+                move_uploaded_file($_FILES['foto']['tmp_name'], $ruta . $nombreima);
     
                 $resultado = $this->db->query("INSERT INTO activos (Nserial,Sede_idSede,Proveedor_idProveedor,Categoria_idcategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen,Fecha_registro) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombre',$precio,$cantidad,'$nombreima','$fecha_registro')");
                 //echo "INSERT INTO activos ('Serial',Sede_idSede,Proveedor_idProveedor,Categoria_idCategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombre',$precio,$cantidad,'$nombreima')";
@@ -60,7 +60,7 @@
             $tipoima = $_FILES['imagen']['type'];
             $tamanoima = $_FILES['imagen']['size'];
            
-            $ruta = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
+            $ruta = $_SERVER['DOCUMENT_ROOT'] . '../uploads/';
             move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta . $nombreima);
 
             $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombre', Precio=$precio, Cantidad=$cantidad, Imagen='$nombreima' WHERE idActivo= '$id'");
@@ -79,7 +79,7 @@
         public function eliminar($id){
 			
 			$resultado = $this->db->query("DELETE FROM activos WHERE idActivo = '$id'");
-			
+			//echo"DELETE FROM activos WHERE idActivo = '$id'";
 		}
 
     }

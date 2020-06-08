@@ -33,7 +33,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM sede");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label>Sede</label>
 					<select name="Sede_idSede" id="sede">
+					<option value="">Seleccione Ubicación...</option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($sede= mysqli_fetch_array($resultado)){
@@ -44,7 +47,8 @@
 						}
 						?>
 					</select>
-					
+					</div>
+
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -52,7 +56,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM rol");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label>Rol</label>
 					<select name="Rol_idRol" id="rol">
+					<option value="">Seleccione Rol...</option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($rol= mysqli_fetch_array($resultado)){
@@ -63,7 +70,8 @@
 						}
 						?>
 					</select>
-					
+					</div>
+
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -71,7 +79,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM TipoIdentificacion");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label>Tipo Identificación</label>
 					<select name="TipoIdentificacion_idTipoIdentificacion" id="ti">
+					<option value="">Tipo Identificación...</option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($ti= mysqli_fetch_array($resultado)){
@@ -82,6 +93,7 @@
 						}
 						?>
 					</select>
+					</div>
 					
 					<div class="form-group">
 						<label for="Identificacion">Identificacion</label>

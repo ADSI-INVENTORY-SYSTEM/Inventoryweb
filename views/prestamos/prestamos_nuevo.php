@@ -30,10 +30,13 @@
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
 						$con1      = $conex->conectar();
-						$resultado = mysqli_query($con1, "SELECT * FROM activos");
+						$resultado = mysqli_query($con1, "SELECT * FROM activos WHERE Categoria_idcategoria =1  ORDER BY Nserial ASC");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label>Serial </label>
 					<select name="Activos_idActivo" id="serial">
+					<option value="">Seleccione Serial...</option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($sede= mysqli_fetch_array($resultado)){
@@ -44,15 +47,19 @@
 						}
 						?>
 					</select>
+					</div>
 					
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
 						$con1      = $conex->conectar();
-						$resultado = mysqli_query($con1, "SELECT * FROM usuarios");
+						$resultado = mysqli_query($con1, "SELECT * FROM usuarios WHERE Estado =1  ORDER BY Nombres ASC");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label>Usuario Solicitante</label>
 					<select name="Usuarios_idUsuario" id="usuario">
+					<option value="">Seleccione Usuario...</option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($rol= mysqli_fetch_array($resultado)){
@@ -63,7 +70,7 @@
 						}
 						?>
 					</select>
-					
+					</div>
 
 					<div class="form-group">
 						<label for="inicial">Fecha Entrega</label>

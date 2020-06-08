@@ -32,10 +32,13 @@
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
 						$con1      = $conex->conectar();
-						$resultado = mysqli_query($con1, "SELECT * FROM activos");
+						$resultado = mysqli_query($con1, "SELECT * FROM activos WHERE Categoria_idcategoria =1  ORDER BY Nserial ASC");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
-					<select name="Activos_idActivo" id="serial">
+					<div class="form-group">
+					<label for="serial">Serial </label>
+					<select class="selecto" name="Activos_idActivo" id="serial">
+					<option value="<?php echo $data["prestamos"]["Activos_idActivo"]; ?>"selected><?php echo $data["prestamos"]["Nserial"];?></option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($sede= mysqli_fetch_array($resultado)){
@@ -46,26 +49,13 @@
 						}
 						?>
 					</select>
-					
-					<?php
-						require_once "ConexionDatos.php";
-						$conex     = new conexiondatos();
-						$con1      = $conex->conectar();
-						$resultado = mysqli_query($con1, "SELECT * FROM usuarios");
-						$resultado1 = mysqli_num_rows($resultado);
-					?>
-					<select name="Usuarios_idUsuario" id="usuario">
-						<?php  
-							if ($resultado1 > 0) {
-								while($rol= mysqli_fetch_array($resultado)){
-						?>
-							<option value="<?php echo $rol["idUsuario"]; ?>"><?php echo $rol["Nombres"]?></option>
-						<?php		
-							}
-						}
-						?>
-					</select>
-					
+					</div>
+
+
+					<div class="form-group">
+					<label for="inicial">Nombre Solicitante: </label><br>
+						<label for="inicial"><?php echo $data["prestamos"]["Nombres"]?></label>
+					</div>
 
 					<div class="form-group">
 						<label for="inicial">Fecha Entrega</label>

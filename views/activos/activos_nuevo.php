@@ -8,6 +8,7 @@
 		<?php include 'scripts.php'; ?>
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		<script src="assets/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/funciones.js"></script>
 	</head>
 	
 	<body>
@@ -33,6 +34,8 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM sede");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label for="serial">Ubicación: </label>
 					<select name="Sede_idSede" id="sede">
 						<?php  
 							if ($resultado1 > 0) {
@@ -44,7 +47,7 @@
 						}
 						?>
 					</select>
-					
+					</div>
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -52,6 +55,8 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM proveedor");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label for="serial">Proveedor: </label>
 					<select name="Proveedor_idProveedor" id="Proveedor_idProveedor">
 						<?php  
 							if ($resultado1 > 0) {
@@ -63,7 +68,7 @@
 						}
 						?>
 					</select>
-					
+					</div>
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -71,6 +76,8 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM categoria");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label for="serial">Categoria: </label>
 					<select name="Categoria_idcategoria" id="Categoria_idcategoria">
 						<?php  
 							if ($resultado1 > 0) {
@@ -82,7 +89,8 @@
 						}
 						?>
 					</select>
-                    
+                    </div>
+
                     <?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -90,6 +98,8 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM estado");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="form-group">
+					<label for="serial">Estado: </label>
 					<select name="Estado_idEstado" id="Estado_idEstado">
 						<?php  
 							if ($resultado1 > 0) {
@@ -101,7 +111,8 @@
 						}
 						?>
 					</select>
-
+					</div>
+					
                     <div class="form-group">
 						<label for="serial">Serial</label>
 						<input type="text" class="form-control" id="Nserial" name="Nserial" />
@@ -122,9 +133,16 @@
 						<input type="text" class="form-control" id="Cantidad" name="Cantidad" />
 					</div>
 
-                    <div class="form-group">
-						<label for="imagen">imagen</label>
-						<input type="file" class="form-control" id="imagen" name="imagen" />
+                    <div class="photo">
+						<label for="foto">Foto</label>
+							<div class="prevPhoto">
+							<span class="delPhoto notBlock">X</span>
+							<label for="foto"></label>
+							</div>
+							<div class="upimg">
+							<input type="file" name="foto" id="foto">
+							</div>
+							<div id="form_alert"></div>
 					</div>
 				
 					<button id="guardar" name="guardar" type="submit" class="btn btn-primary">Guardar</button>

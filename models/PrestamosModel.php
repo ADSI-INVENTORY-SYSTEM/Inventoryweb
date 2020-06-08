@@ -14,7 +14,7 @@
 		{
 
 			require("paginacion3.php");
-			$sql = "SELECT idPrestamo,Nombres,Nserial,Fecha_Entrega,Fecha_Devolucion FROM prestamo INNER JOIN activos ON Activos_idActivo = idActivo INNER JOIN usuarios ON Usuarios_idUsuario = idUsuario ORDER BY idPrestamo ASC LIMIT $empezar_desde, $tamano_pagina";
+			$sql = "SELECT idPrestamo,Nombres,Nserial,NombreActivo,Fecha_Entrega,Fecha_Devolucion FROM prestamo INNER JOIN activos ON Activos_idActivo = idActivo INNER JOIN usuarios ON Usuarios_idUsuario = idUsuario ORDER BY idPrestamo ASC LIMIT $empezar_desde, $tamano_pagina";
 			$resultado = $this->db->query($sql);
 			$sql=null;
 			while($row = $resultado->fetch_assoc())
@@ -42,9 +42,9 @@
 		}
 
 
-		public function modificar($id,$activo,$usuario,$fechae,$fechad){
+		public function modificar($id,$activo,$fechae,$fechad){
 			
-			$resultado = $this->db->query("UPDATE prestamo SET Activos_idActivo='$activo', Usuarios_idUsuario='$usuario', Fecha_Entrega='$fechae', Fecha_Devolucion='$fechad' WHERE idPrestamo = '$id'");			
+			$resultado = $this->db->query("UPDATE prestamo SET Activos_idActivo='$activo', Fecha_Entrega='$fechae', Fecha_Devolucion='$fechad' WHERE idPrestamo = '$id'");			
 			$resultado=null;
 			//echo "UPDATE usuarios SET Sede_idSede=$sede, Rol_idRol=$rol, TipoIdentificacion_idTipoIdentificacion=$ti, Identificacion=$nidentificacion, Nombres='$nombre', Apellidos='$apellido', Direccion='$direccion', Telefono=$telefono, Correo='$correo', Usuario='$usuario', Ambiente=$ambiente WHERE idUsuario = '$id'";
 		}

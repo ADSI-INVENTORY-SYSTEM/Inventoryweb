@@ -36,7 +36,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM sede");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
-					<select name="Sede_idSede" id="sede">
+					<div class="form-group">
+					<label for="serial">Ubicación: </label>
+					<select class="selecto" name="Sede_idSede" id="sede" >
+						<option value="<?php echo $data["activos"]["Sede_idSede"]; ?>"selected><?php echo $data["activos"]["NombreSede"];?></option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($sede= mysqli_fetch_array($resultado)){
@@ -47,7 +50,8 @@
 						}
 						?>
 					</select>
-					
+					</div>
+
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -55,7 +59,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM proveedor");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
-					<select name="Proveedor_idProveedor" id="Proveedor_idProveedor">
+					<div class="form-group">
+					<label for="serial">Proveedor: </label>
+					<select class="selecto" name="Proveedor_idProveedor" id="Proveedor_idProveedor">
+					<option value="<?php echo$data["activos"]["Proveedor_idProveedor"]; ?>"selected><?php echo $data["activos"]["NombreProveedor"];?></option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($proveedor= mysqli_fetch_array($resultado)){
@@ -66,7 +73,8 @@
 						}
 						?>
 					</select>
-					
+					</div>
+
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -74,7 +82,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM categoria");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
-					<select name="Categoria_idcategoria" id="Categoria_idcategoria">
+					<div class="form-group">
+					<label for="serial">Categoria: </label>
+					<select class="selecto" name="Categoria_idcategoria" id="Categoria_idcategoria">
+					<option value="<?php echo $data["activos"]["Categoria_idcategoria"]; ?>"selected><?php echo $data["activos"]["NombreCategoria"];?></option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($cate= mysqli_fetch_array($resultado)){
@@ -85,7 +96,8 @@
 						}
 						?>
 					</select>
-                    
+					</div>
+					
                     <?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -93,7 +105,10 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM estado");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
-					<select name="Estado_idEstado" id="Estado_idEstado">
+					<div class="form-group">
+					<label for="serial">Estado: </label>
+					<select class="selecto" name="Estado_idEstado" id="Estado_idEstado">
+					<option value="<?php echo $data["activos"]["Estado_idEstado"]; ?>"selected><?php echo $data["activos"]["NombreEstado"];?></option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($estado= mysqli_fetch_array($resultado)){
@@ -104,7 +119,8 @@
 						}
 						?>
 					</select>
-
+					</div>
+					
                     <div class="form-group">
 						<label for="serial">Serial</label>
 						<input type="text" class="form-control" id="Nserial" name="Nserial"  value="<?php echo $data["activos"]["Nserial"]?>" />
@@ -124,7 +140,7 @@
 						<label for="cantidad">Cantidad</label>
 						<input type="text" class="form-control" id="Cantidad" name="Cantidad" value="<?php echo $data["activos"]["Cantidad"]?>" />
 					</div>
-
+					
                     <div class="">
                         <label>Imagen</label>
                         <img src="../uploads/<?php echo $data["activos"]["Imagen"]?>"/>

@@ -37,9 +37,9 @@
             date_default_timezone_set("america/bogota"); 
 			$fecha_registro = date('Y-m-d H:i:s');
 
-            $nombreima = $_FILES['imagen']['name'];
-            $tipoima = $_FILES['imagen']['type'];
-            $tamanoima = $_FILES['imagen']['size'];
+            $nombreima = $_FILES['foto']['name'];
+            $tipoima = $_FILES['foto']['type'];
+            $tamanoima = $_FILES['foto']['size'];
 
             $activos = new Activos_model();
             $activos->insertar($serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombreima);
