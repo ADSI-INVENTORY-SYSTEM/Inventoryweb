@@ -39,14 +39,16 @@
             }
             else
             {
-                $nombreima = $_FILES['foto']['name'];
-                $tipoima = $_FILES['foto']['type'];
-                $tamanoima = $_FILES['foto']['size'];
+                $nombreima = "uploads/";
+                //$tipoima = $_FILES['foto']['type'];
+                //$tamanoima = $_FILES['foto']['size'];
                 date_default_timezone_set("america/bogota"); 
 				$fecha_registro  =date('Y-m-d H:i:s');
-               
-                $ruta = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
-                move_uploaded_file($_FILES['foto']['tmp_name'], $ruta . $nombreima);
+                
+                $ruta= $nombreima.basename($_FILES['foto']['name'])
+
+                //$ruta = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
+                move_uploaded_file($_FILES['foto']['tmp_name'], $ruta);
     
                 $resultado = $this->db->query("INSERT INTO activos (Nserial,Sede_idSede,Proveedor_idProveedor,Categoria_idcategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen,Fecha_registro) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombre',$precio,$cantidad,'$nombreima','$fecha_registro')");
                 //echo "INSERT INTO activos ('Serial',Sede_idSede,Proveedor_idProveedor,Categoria_idCategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombre',$precio,$cantidad,'$nombreima')";
