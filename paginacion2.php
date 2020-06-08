@@ -1,7 +1,7 @@
 <?php
 	require_once("config/conectar.php");
 	$base=conectarr::conexionn();
-	$tamano_pagina=4;
+	$tamano_pagina=5;
 
 	if (isset($_GET["pagina"]))
 	{
