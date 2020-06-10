@@ -1,65 +1,97 @@
 <?php
 
 session_start();
-require "config/database.php";
-require "Fpdf/fpdf.php";
+require_once("ConexionDatos.php");
+require("Fpdf/fpdf.php");
 
-$conbsd=new Conectar();
-$con3=$conbsd->conexion();
+
 
 $I=$_POST['Categoria_idcategoria'];
 //$O=$_POST['o'];
 
-																													
+																														
 
-$pdf= new FPDF('p','mm', array(500,500));
-$pdff=new FPDF();
-
-
-$pdf->setmargins(40,0);
-$pdf->aliasnbpages();
-
-$pdf->addpage('');
-
-$pdf->settextcolor(0x00,0x00,0x00);
-$pdf->setfont("courier","",25);
-$pdf->setxy(60,30);
-$pdf->multicell(100,20, utf8_decode('Activos'),0,'C');
-$pdf->Cell(100,20,'Reporte generado por:|'.$_SESSION['usuari'].'',0,'C');
-$pdf->multicell(100,20, utf8_decode(''),0,'C');
-$pdf->Cell(100,20,'Cargo:|'.$_SESSION['rol'].'',0,'C');
-$pdf->multicell(100,20, utf8_decode(''),0,'C');
+$conbsd=new conexiondatos();
+$con3=$conbsd->conectar();
 
 
+class PDF extends FPDF
+{
+    // Cabecera de página
+    function Header()
+    {
+        $this->SetFillColor(49, 105, 168);
+        $this->Rect(0,0,220,50,'F');
+        $this->Image('assets/img/logo.jpg',180,15,20,20,'jpg');
+        $this->SetFont('Times','B',12);
+        $this->SetTextColor(255,255,255);
+        $this->Cell(0,5,utf8_decode('INVENTORY SYSTEM WEB'),0,5,'C');
+        $this->Ln(5);
+        date_default_timezone_set("america/bogota");
+        $this->cell(0,0,'Fecha: '.date('d/m/Y').'',0);
+        $this->Ln(7);
+        $this->cell(0,0,'Hora: '.date('H:i').'',0);
+        $this->Ln(7);
+        $this->cell(0,0,'Autor: '.$_SESSION['usuari'].'');
+        $this->Ln(7);
+        $this->cell(0,0,'Cargo: '.$_SESSION['rol'].'');
+        $this->Ln(20);
+    }
 
+    // Pie de página
+    function Footer()
+    {
+        // Posición: a 1,5 cm del final
+        $this->SetY(-15);
+        // Arial italic 8
+        $this->SetFont('Arial','I',8);
+        $this->SetTextColor(40,40,40);
+        $this->write(5,'Bogota, Colombia');
+        // Número de página
+        $this->Cell(0,10, $this->PageNo().'/{nb}',0,0,'C');
+    }
+}
+    
+// Creación del objeto de la clase heredada
+$pdf = new PDF('p','mm','letter');
 
+$pdf->setmargins(10,10,10);
+$pdf->AliasNbPages();
+$pdf->AddPage('portrait','letter');
 
-$pdf->settextcolor(0x00,0x00,0x00);
-$pdf->setfont("Arial","b",9);
-$pdf->cell(300,6,'Datos del Activo',1,1,'C');
+$pdf->setfont('times','B',12);
 
+$consu = "SELECT NombreCategoria FROM activos  INNER JOIN categoria ON Categoria_idcategoria = idcategoria where Categoria_idcategoria='".$I."'";
+$data=mysqli_query($con3,$consu);
+$sql = mysqli_fetch_array($data);
 
+$pdf->cell(0,0,'Activos Que Se Encuentran En La Categoria: '.$sql["NombreCategoria"].'',0,0,'S');
 
+$pdf->Ln(20);
 
+$pdf->SetFont('Times','B',12);
 
+$pdf->Cell(0,5,'ACTIVOS',0,5,'C');
+$pdf->Ln(10);
 
-$pdf->cell(30,5,"iD",1,0,'C');
+$pdf->SetFont('Helvetica','',10);
+$pdf->SetDrawcolor( 10, 11, 11 );
+$pdf->SetFillColor(49, 105, 168);
+$pdf->SetTextColor(255,255,255);
+$pdf->cell(15,6,"ID",1,0,'C',1);
+$pdf->cell(24,6,"Serial",1,0,'C',1);
+$pdf->cell(22,6,"Sede",1,0,'C',1);
+$pdf->cell(22,6,"Proveedor",1,0,'C',1);
+$pdf->SetFillColor(251, 255, 1);
+$pdf->SetTextColor(0,0,0);
+$pdf->cell(22,6,"Categoria",1,0,'C',1);
+$pdf->SetFillColor(49, 105, 168);
+$pdf->SetTextColor(255,255,255);
+$pdf->cell(22,6,"Estado",1,0,'C',1);
+$pdf->cell(29,6,"Nombre",1,0,'C',1);
+$pdf->cell(22,6,"Precio",1,0,'C',1);
+$pdf->cell(20,6,"Cantidad",1,1,'C',1);
 
-$pdf->cell(40,5,"Serial",1,0,'C');
-
-$pdf->cell(30,5,"Sede",1,0,'C');
-
-$pdf->cell(30,5,"Proveedor",1,0,'C');
-
-$pdf->cell(30,5,"Categoria",1,0,'C');
-
-$pdf->cell(35,5,"Estado",1,0,'C');
-
-$pdf->cell(35,5,"Nombre",1,0,'C');
-
-$pdf->cell(35,5,"Precio",1,0,'C');
-
-$pdf->cell(35,5,"Cantidad",1,1,'C');
 
 
 
@@ -72,25 +104,29 @@ $query = "SELECT idActivo,Nserial,NombreSede,NombreProveedor,NombreCategoria,Nom
 
 $datos=mysqli_query($con3,$query);
 
+
+$pdf->settextcolor(40,40,40);
+
 while($row = mysqli_fetch_array($datos))
 {
-$pdf->Cell(30, 5, $row["idActivo"], 1,0, 'C');
+$pdf->SetFillColor(240,240,240);
+$pdf->Cell(15, 6, $row["idActivo"], 1,0,1,'C');
 
-$pdf->Cell(40, 5, $row["Nserial"], 1,0, 'C');
+$pdf->Cell(24, 6, $row["Nserial"], 1,0,1,'C');
 
-$pdf->Cell(30, 5, $row["NombreSede"], 1,0, 'C');
+$pdf->Cell(22, 6, $row["NombreSede"], 1,0,1,'C');
 
-$pdf->Cell(30, 5, $row["NombreProveedor"], 1,0, 'C');
+$pdf->Cell(22, 6, $row["NombreProveedor"], 1,0,1,'C');
+$pdf->SetFillColor(251, 255, 1);
+$pdf->Cell(22, 6, $row["NombreCategoria"], 1,0,1,'C');
+$pdf->SetFillColor(240,240,240);
+$pdf->Cell(22, 6, $row["NombreEstado"], 1,0,1,'C');
 
-$pdf->Cell(30, 5, $row["NombreCategoria"], 1,0, 'C');
+$pdf->Cell(29, 6, $row["NombreActivo"], 1,0,1,'C');
 
-$pdf->Cell(35, 5, $row["NombreEstado"], 1,0, 'C');
+$pdf->Cell(22, 6, '$'. $row["Precio"], 1,0,1,'C');
 
-$pdf->Cell(35, 5, $row["NombreActivo"], 1,0, 'C');
-
-$pdf->Cell(35, 5, '$'. $row["Precio"], 1,0, 'C');
-
-$pdf->Cell(35, 5, $row["Cantidad"], 1,1, 'C');
+$pdf->Cell(20, 6, $row["Cantidad"], 1,1,1,'C');
 
 }
 
