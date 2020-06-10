@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,7 +30,7 @@
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					Bienvenido señor Administrador a continuación encontrará una interfaz <br> 
+					Bienvenido <?php echo $_SESSION['usuari'];?> a continuación encontrará una interfaz <br> 
 					sencilla para la busqueda del estado que desea y allí podrá observar <br>
 					los activos disponibles en dicho estado
 				</p>

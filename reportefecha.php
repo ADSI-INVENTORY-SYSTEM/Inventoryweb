@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +29,7 @@
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					Bienvenido señor Usuario a continuación encontrará una interfaz <br> 
+					Bienvenido <?php echo $_SESSION['usuari'];?> a continuación encontrará una interfaz <br> 
 					sencilla para la busqueda de ingreso de activos al sistema <br>
 					en el mes que desea y allí podrá observar <br>
 					los activos registrados en dicho mes

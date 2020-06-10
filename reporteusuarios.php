@@ -1,9 +1,12 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Reportes Por Categoria</title>
+	<title>Reportes Usuarios</title>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/main2.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/estilo.css"> 
@@ -27,7 +30,7 @@
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					Bienvenido señor Administrador a continuación encontrará una interfaz <br> 
+					Bienvenido<?php echo $_SESSION['usuari'];?> a continuación encontrará una interfaz <br> 
 					sencilla para la busqueda del Rol que desea y allí podrá observar <br>
 					los usuarios registrados en dicho rol.
 				</p>
