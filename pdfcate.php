@@ -3,7 +3,6 @@
 session_start();
 require_once("ConexionDatos.php");
 require("Fpdf/fpdf.php");
-require("scripts.php");
 
 
 
