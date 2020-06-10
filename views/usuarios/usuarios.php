@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -23,7 +26,23 @@
 		</section>
 		<!-- Contenido -->
 		<section class="full-width pageContent">
+			<section class="full-width header-well">
+				<div class="full-width header-well-icon">
+					<i class="zmdi zmdi-account"></i>
+				</div>
+				<div class="full-width header-well-text">
+					<p class="text-condensedLight">
+						Bienvenido <?php echo $_SESSION['usuari'];?> a continuación encontrará una interfaz <br> 
+						sencilla con la lista de usuarios registrados en el sistema.
+					</p>
+				</div>
+			</section>
 			<section class="full-width text-center" style="padding: 5px;">
+				<div class="full-width panel mdl-shadow--2dp">
+					<div class="full-width panel-tittle bg-primary text-center tittles">
+						Usuarios Registrados
+					</div>
+				</div>
 				<p class="text-left">
 					<a href="index1.php?c=Usuarios&a=nuevo" class="btn-agregar">
 					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-adAdmin">

@@ -84,6 +84,35 @@ $(document).on('keyup','#caja_busqueda3', function(){
 	}
 });
 
+/* Funcion buscar usuarios */
+
+$(buscar_datos4());
+
+function buscar_datos4(consulta){
+	$.ajax({
+		url: 'Buscarusu.php' ,
+		type: 'POST' ,
+		dataType: 'html',
+		data: {consulta: consulta},
+	})
+	.done(function(respuesta){
+		$("#datos").html(respuesta);
+	})
+	.fail(function(){
+		console.log("error");
+	});
+}
+
+
+$(document).on('keyup','#caja_busqueda4', function(){
+	var valor = $(this).val();
+	if (valor != "") {
+		buscar_datos4(valor);
+	}else{
+		buscar_datos4();
+	}
+});
+
 
 
 

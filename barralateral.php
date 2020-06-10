@@ -125,6 +125,16 @@
 									</div>
 								</a>
 							</li>
+							<li class="full-width">
+								<a href="reporteusuarios.php" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-accounts"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Usuarios
+									</div>
+								</a>
+							</li>
 						</ul>
 					</li>
 					<?php }
