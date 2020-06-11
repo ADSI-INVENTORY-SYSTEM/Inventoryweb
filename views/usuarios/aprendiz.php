@@ -1,29 +1,27 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" type="text/css" href="estiloregistrousuario.css">
 <script type="text/javascript" src="scrips/jquery.min.js"></script>
 <script type="text/javascript" src="scrips/icons.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registro</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="estiloregistrousuario.css">
+	<title>Registrar Aprendiz</title>
+	<link href="assets/img/logo.jpg" rel="icon" type="image/jpeg" />
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/material.min.css">
 </head>
-
 <body background="assets/img/fontLogin.jpg">
   <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
       <div class="user_card">
-        <div class="d-flex justify-content-center">
-        </div>
         <div class="d-flex justify-content-center form_container">
           <form id="nuevo" name="nuevo" method="POST" action="index1.php?c=Usuarios&a=guardaAprendiz" autocomplete="off">
-            <h1>Registrate!</h1>
+		  <div class="mdl-tabs__panel is-active" id="tabNewAdmin">
+		  	<div class="mdl-grid">
+		  	<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+			  <h5 class="text-condensedLight">Datos  Generales</h5>
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -31,7 +29,12 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM sede");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+						</div>
 					<select name="Sede_idSede" id="sede">
+					<option value="">Seleccione Sede...</option>
 						<?php  
 							if ($resultado1 > 0) {
 								while($sede= mysqli_fetch_array($resultado)){
@@ -42,7 +45,8 @@
 						}
 						?>
                     </select>
-                    					
+					</div>
+										
 					<?php
 						require_once "ConexionDatos.php";
 						$conex     = new conexiondatos();
@@ -50,7 +54,12 @@
 						$resultado = mysqli_query($con1, "SELECT * FROM TipoIdentificacion");
 						$resultado1 = mysqli_num_rows($resultado);
 					?>
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+						</div>
 					<select name="TipoIdentificacion_idTipoIdentificacion" id="ti">
+						<option value="">Seleccione Identificacion...</option>	
 						<?php  
 							if ($resultado1 > 0) {
 								while($ti= mysqli_fetch_array($resultado)){
@@ -61,55 +70,84 @@
 						}
 						?>
 					</select>
+					</div>
+
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control input_user" id="Identificacion" name="Identificacion" placeholder="N. Identificacion" />
+					</div>
 					
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Identificacion">Identificacion</label>
-						<input type="text" class="mdl-textfield__input" id="Identificacion" name="Identificacion" />
-					</div>
 					
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Nombres">Nombres</label>
-						<input type="text" class="mdl-textfield__input" id="Nombres" name="Nombres" />
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-signature"></i></i></span>
+						</div>
+						<input type="text" class="form-control input_user" id="Nombres" name="Nombres" placeholder="Nombres" />
 					</div>
 
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Apellidos">Apellidos</label>
-						<input type="text" class="mdl-textfield__input" id="Apellidos" name="Apellidos" />
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-signature"></i></span>
+						</div>
+						<input type="text" class="form-control input_user" id="Apellidos" name="Apellidos" placeholder="Apellidos" />
 					</div>
 
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Direccion">Direccion</label>
-						<input type="text" class="mdl-textfield__input" id="Direccion" name="Direccion" />
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+						</div>
+						<input type="text" class="form-control input_user" id="Direccion" name="Direccion" placeholder="Direccion" />
 					</div>
 
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Telefono">Telefono</label>
-						<input type="text" class="mdl-textfield__input" id="Telefono" name="Telefono" />
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-phone"></i></span>
+						</div>
+						<input type="text" class="form-control input_user" id="Telefono" name="Telefono" placeholder="Telefono" />
+					</div>
+				</div>
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+				<h5 class="text-condensedLight">Datos de Cuenta</h5>
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control input_user" id="Correo" name="Correo" placeholder="Correo" />
 					</div>
 
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Correo">Correo</label>
-						<input type="text" class="mdl-textfield__input" id="Correo" name="Correo" />
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control input_user" id="Usuario" name="Usuario" placeholder="Usuario" />
 					</div>
 
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Usuario">Usuario</label>
-						<input type="text" class="mdl-textfield__input" id="Usuario" name="Usuario" />
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="password" class="form-control input_user" id="Contrasena" name="Contrasena" placeholder="Contraseña" />
 					</div>
 
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Contrasena">Contraseña</label>
-						<input type="password" class="mdl-textfield__input" id="Contrasena" name="Contrasena" />
-					</div>
-
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<label class="mdl-textfield__label" for="Ambiente">Ambiente</label>
-						<input type="text" class="mdl-textfield__input" id="Ambiente" name="Ambiente" />
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control input_user" id="Ambiente" name="Ambiente" placeholder="Ambiente" />
 					</div>
 				
-					<button id="guardar" name="guardar" type="submit" class="btn btn-primary">Registrarse</button>
+					<button id="guardar" name="guardar" type="submit" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:left;">Registrarse</button>
+					<a href="index.php">	
+					<button id="guardar" name="guardar" type="submit" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:right;">Cancelar</button>
+					</a>
+				</div>
+			</div>
+			</div>		
           </form>
-        </div>
+		</div>
+		</div>
         </div>
       </div>
     </div>
