@@ -38,7 +38,7 @@
 			</button>
 			<br>
 			<div class="d-flex justify-content-center links">
-                  <a href="index1.php?c=Usuarios&a=nuevoAprendiz" class="ml-2">Registrarme</a>
+                  <a href="index1.php?c=Usuarios&a=nuevoAprendiz" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:left;">Registrarme</a>
                </div>
 		</form>
 	</div>
