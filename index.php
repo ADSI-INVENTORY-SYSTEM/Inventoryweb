@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Ingreso</title>
-	<link href="assets/img/logo.jpg" rel="icon" type="image/jpeg" />
+	<link href="assets/img/logoo.jpg" rel="icon" type="image/jpeg" />
 	<script>
 	function mostrarContrasena(){
 		var tipo= document.getElementById("Contrasena");
