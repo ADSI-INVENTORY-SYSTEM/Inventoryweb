@@ -37,10 +37,10 @@
             date_default_timezone_set("america/bogota"); 
             $fecha_registro = date('Y-m-d H:i:s');
             
-            $nombre=$_FILES['foto']['name'];
+            $nombrei=$_FILES['foto']['name'];
 
             $activos = new Activos_model();
-            $activos->insertar($serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombre);
+            $activos->insertar($serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombrei);
             $data["titulo"] = "Activos";
             $this->index();
         }
@@ -67,10 +67,10 @@
             $precio = $_POST["Precio"];
             $cantidad = $_POST["Cantidad"];
 
-            $nombre=$_FILES['imagen']['name'];
+            $nombrei=$_FILES['imagen']['name'];
 
             $activos = new Activos_model();
-            $activos->modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombre);
+            $activos->modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombrei);
             $data["titulo"] = "Activos";
             $this->index();
 

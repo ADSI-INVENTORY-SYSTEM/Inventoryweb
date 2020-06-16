@@ -25,7 +25,7 @@
         }
 
 
-        public function insertar($serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombre)
+        public function insertar($serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombrei)
         {
             $consulta = $this->db->query("SELECT * FROM activos WHERE Nserial = '$serial'"); 
             $resultado = mysqli_fetch_array($consulta);
@@ -43,27 +43,27 @@
                 opendir($carpeta);
                 $destino=$carpeta.$_FILES['foto']['name'];
                 copy($_FILES['foto']['tmp_name'],$destino);
-                $nombre=$_FILES['foto']['name'];
+                $nombrei=$_FILES['foto']['name'];
                 date_default_timezone_set("america/bogota"); 
 				$fecha_registro  =date('Y-m-d H:i:s');
                
                 
     
-                $resultado = $this->db->query("INSERT INTO activos (Nserial,Sede_idSede,Proveedor_idProveedor,Categoria_idcategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen,Fecha_registro) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombre',$precio,$cantidad,'$nombre','$fecha_registro')");
+                $resultado = $this->db->query("INSERT INTO activos (Nserial,Sede_idSede,Proveedor_idProveedor,Categoria_idcategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen,Fecha_registro) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombre',$precio,$cantidad,'$nombrei','$fecha_registro')");
                 //echo "INSERT INTO activos ('Serial',Sede_idSede,Proveedor_idProveedor,Categoria_idCategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombre',$precio,$cantidad,'$nombreima')";
 
             }
         }
 
-        public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombre)
+        public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombrei)
         {
             $carpeta="imagenes/";
             opendir($carpeta);
             $destino=$carpeta.$_FILES['imagen']['name'];
             copy($_FILES['imagen']['tmp_name'],$destino);
-            $nombre=$_FILES['imagen']['name'];
+            $nombrei=$_FILES['imagen']['name'];
 
-            $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombre', Precio=$precio, Cantidad=$cantidad, Imagen='$nombre' WHERE idActivo= '$id'");
+            $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombre', Precio=$precio, Cantidad=$cantidad, Imagen='$nombrei' WHERE idActivo= '$id'");
             //echo "UPDATE activos SET Nserial = $serial, Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombre', Precio=$precio, Cantidad=$cantidad, Imagen='$nombreima' WHERE idActivo= '$id'";
         }
 
