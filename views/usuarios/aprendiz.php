@@ -8,7 +8,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="estiloregistrousuario.css">
 	<title>Registrar Aprendiz</title>
-	<link href="assets/img/logo.jpg" rel="icon" type="image/jpeg" />
+	<link href="assets/img/inventory.jpeg" rel="icon" type="image/jpeg" />
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/material.min.css">
 </head>
