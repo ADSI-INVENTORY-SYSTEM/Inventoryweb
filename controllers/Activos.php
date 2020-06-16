@@ -30,7 +30,7 @@
             $proveedor = $_POST["Proveedor_idProveedor"];
             $categoria = $_POST["Categoria_idcategoria"];
             $estado = $_POST["Estado_idEstado"];
-            $nombre = $_POST["NombreActivo"];
+            $nombrea = $_POST["NombreActivo"];
             $precio = $_POST["Precio"];
             $cantidad = $_POST["Cantidad"];
 
@@ -41,7 +41,7 @@
 
 
             $activos = new Activos_model();
-            $activos->insertar($serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombre);
+            $activos->insertar($serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$nombre);
             $data["titulo"] = "Activos";
             //$this->index();
         }
@@ -64,14 +64,14 @@
             $proveedor = $_POST["Proveedor_idProveedor"];
             $categoria = $_POST["Categoria_idcategoria"];
             $estado = $_POST["Estado_idEstado"];
-            $nombre = $_POST["NombreActivo"];
+            $nombrea = $_POST["NombreActivo"];
             $precio = $_POST["Precio"];
             $cantidad = $_POST["Cantidad"];
 
             $nombre=$_FILES['imagen']['name'];
 
             $activos = new Activos_model();
-            $activos->modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombre,$precio,$cantidad,$nombre);
+            $activos->modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$nombre);
             $data["titulo"] = "Activos";
             //$this->index();
 
