@@ -34,7 +34,7 @@ session_start();
 				<div class="full-width header-well-text">
 					<p class="text-condensedLight">
 						Bienvenido <?php echo $_SESSION['usuari'];?> a continuación encontrará una interfaz <br> 
-						sencilla con la lista de activos registrados en el sistema.
+						sencilla con la lista de activos registrados en el sistema para interactuar.
 					</p>
 				</div>
 			</section>
