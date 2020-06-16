@@ -40,7 +40,7 @@
 					echo"
 					<div class='mdl-card mdl-shadow--4dp full-width product-card'>
 						<div class='mdl-card__title'>
-						<img src='../uploads/".$dato["Imagen"]."' class='img-responsive'/>
+						<img src='../imagenes/".$dato["Imagen"]."' class='img-responsive'/>
 						</div>
 						<div class='mdl-card__supporting-text'>
 							<small>".$dato["idActivo"]."</small><br>
