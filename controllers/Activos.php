@@ -43,7 +43,7 @@
             $activos = new Activos_model();
             $activos->insertar($serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$nombre);
             $data["titulo"] = "Activos";
-            //$this->index();
+            $this->index();
         }
 
         public function modificar($id){
@@ -73,7 +73,7 @@
             $activos = new Activos_model();
             $activos->modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$nombre);
             $data["titulo"] = "Activos";
-            //$this->index();
+            $this->index();
 
         }
 
