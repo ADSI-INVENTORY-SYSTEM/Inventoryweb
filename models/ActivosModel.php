@@ -39,7 +39,7 @@
             }
             else
             {
-                $carpeta="https://inventorysystemweb.herokuapp.com/imagenes/";
+                $carpeta="imagenes/";
                 opendir($carpeta);
                 $destino=$carpeta.$_FILES['foto']['name'];
                 copy($_FILES['foto']['tmp_name'],$destino);
@@ -56,7 +56,7 @@
 
         public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$nombreima)
         {
-            $carpeta="https://inventorysystemweb.herokuapp.com/imagenes/";
+            $carpeta="imagenes/";
             opendir($carpeta);
             $destino=$carpeta.$_FILES['imagen']['name'];
             copy($_FILES['imagen']['tmp_name'],$destino);
