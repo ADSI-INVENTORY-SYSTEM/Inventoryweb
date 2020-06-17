@@ -38,8 +38,11 @@
 			</button>
 			<br>
 			<div class="d-flex justify-content-center links">
-                  <a href="index1.php?c=Usuarios&a=nuevoAprendiz" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:left;">Registrarme</a>
-               </div>
+                <a href="index1.php?c=Usuarios&a=nuevoAprendiz" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:left;">Registrarme</a>
+            </div>
+			<div class="d-flex justify-content-center links">
+                  <a href="recuperacontra/recupera.php">Olvidaste Tu Contraseña?</a>
+            </div>
 		</form>
 	</div>
 </body>
