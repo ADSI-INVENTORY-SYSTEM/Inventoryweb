@@ -50,7 +50,7 @@
 				</p>
 				
 				<div class="table-responsive">
-					<table border="1" width="80%" class="table">
+					<table class="tabla_datos">
 						<thead>
 							<tr id='titulo'>
 								<td>ID</td>
