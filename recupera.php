@@ -22,7 +22,7 @@
       
       $token = generaTokenPass($user_id);
       
-      $url = 'https://'.$_SERVER["SERVER_NAME"].'/recuperainventario/cambia_pass.php?user_id='.$user_id.'&token='.$token;
+      $url = 'https://'.$_SERVER["SERVER_NAME"].'/cambia_pass.php?user_id='.$user_id.'&token='.$token;
       
       $asunto = 'Recuperar Password - Sistema de Usuarios';
       $cuerpo = "Hola $nombre: <br /><br />Se ha solicitado un reinicio de contrase&ntilde;a. <br/><br/>Para restaurar la contrase&ntilde;a, visita la siguiente direcci&oacute;n: <a href='$url'>Cambiar Contraseña</a>";
