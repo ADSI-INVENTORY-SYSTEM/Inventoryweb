@@ -29,7 +29,7 @@
 			$resultado = mysqli_fetch_array($consulta);
 			$consulta=null;
 
-			include 'recuperacontra/funcs.php';
+			include 'funcs.php';
 			if (validaPassword($contrasena, $con_contra)) {
 				if ($resultado > 0) {
 					echo '<script>
@@ -59,7 +59,7 @@
 			$consulta= $this->db->query("SELECT * FROM usuarios Where Identificacion = '$nidentificacion' ");
 			$resultado = mysqli_fetch_array($consulta);
 			$consulta=null;
-			include 'recuperacontra/funcs.php';
+			include 'funcs.php';
 			if (validaPassword($contrasena, $con_contra)) {
 				if ($resultado > 0) {
 					echo '<script>
