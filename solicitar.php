@@ -80,19 +80,19 @@
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<h5 class="text-condensedLight">Datos del Usuario</h5>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="Identificacion" name="Identificacion">
+												<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="Identificacion" name="Identificacion" value="<?php echo $_SESSION['ide']; ?>">
 												<label class="mdl-textfield__label" for="DNIAdmin">Numero de identificacion</label>
 												<span class="mdl-textfield__error">Numero Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Nombres" name="Nombres">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Nombres" name="Nombres"  value="<?php echo $_SESSION['usuari'];?>">
 												<label class="mdl-textfield__label" for="NameAdmin">Nombres</label>
 												<span class="mdl-textfield__error">Nombre Invalido</span>
 											</div>
 
 
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="Ambiente" name="Ambiente">
+												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="Ambiente" name="Ambiente" value="<?php echo $_SESSION['ambiente'];?>">
 												<label class="mdl-textfield__label" for="telefono">Ambiente</label>
 												<span class="mdl-textfield__error">Número Invalido</span>
 											</div>
@@ -103,7 +103,7 @@
 											</div>
 
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" cols="30" rows="10" id="mensaje" name="mensaje">
+												<input class="mdl-textfield__input" type="text" cols="30" rows="10" id="mensaje" name="mensaje" value="<?php echo $_SESSION['correo'];?>">
 												<label class="mdl-textfield__label" for="">Mensaje</label>
 												<span class="mdl-textfield__error">Mensaje</span>
 											</div>

@@ -101,6 +101,9 @@
 					$_SESSION['usuari']=$fila['Nombres'];
 					$_SESSION['rol']=$fila['NombreRol'];
 					$_SESSION['nom']=$fila['Usuario'];
+					$_SESSION['ide']=$fila['Identificacion'];
+					$_SESSION['ambiente']=$fila['Ambiente'];
+					$_SESSION['correo']=$fila['Correo'];
 					$_SESSION['verifica']=true;
 					header("Location:home.php");
 				}
