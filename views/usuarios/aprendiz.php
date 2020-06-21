@@ -8,7 +8,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="estiloregistrousuario.css">
 	<title>Registrar Aprendiz</title>
-	<link href="assets/img/inventory.jpeg" rel="icon" type="image/jpeg" />
+	<link href="assets/img/logo.jpg" rel="icon" type="image/jpeg" />
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/material.min.css">
 </head>
@@ -135,13 +135,22 @@
 						<div class="input-group-append">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control input_user" id="Ambiente" name="Ambiente" placeholder="Ambiente" />
+						<input type="password" class="form-control input_user" id="Conficontra" name="Conficontra" placeholder="Confirmar Contraseña" />
+					</div>
+
+					<div class="input-group mb-2">
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control input_user" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="Ambiente" name="Ambiente" placeholder="Ambiente" />
 					</div>
 				
-					<button id="guardar" name="guardar" type="submit" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:left;">Registrarse</button>
-					<a href="index.php">	
+					<button id="guardar" name="guardar" type="submit" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:left;">Registrar</button>
+					
+					<a href="local/index.php">	
 					<button id="guardar" name="guardar" type="submit" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:right;">Cancelar</button>
 					</a>
+
 				</div>
 			</div>
 			</div>		

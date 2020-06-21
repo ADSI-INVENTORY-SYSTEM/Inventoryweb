@@ -15,6 +15,15 @@
 			
 			require_once "views/usuarios/usuarios.php";	
 		}
+
+		public function indexapre(){
+			
+			$usuarios = new Usuarios_model();
+			$data["titulo"] = "Usuarios";
+			$data["usuarios"] = $usuarios->get_usuarios();
+			
+			require_once "index.php";	
+		}
 		
 		public function nuevo(){
 			
@@ -42,16 +51,15 @@
 			$correo = $_POST['Correo'];
 			$usuario = $_POST['Usuario'];
 			$contrasena = $_POST['Contrasena'];
+			$con_contra=$_POST['Conficontra'];
 			$ambiente = $_POST['Ambiente'];
 			//$fecha_registro = $_POST['Fecha_registro'];
 
 			date_default_timezone_set("america/bogota"); 
 			$fecha_registro = date('Y-m-d H:i:s');
 			
-			
-
 			$usuarios = new Usuarios_model();
-			$usuarios->insertar($sede,$rol,$ti,$nidentificacion,$nombre,$apellido,$direccion,$telefono,$correo,$usuario,$contrasena,$ambiente,$fecha_registro);
+			$usuarios->insertar($sede,$rol,$ti,$nidentificacion,$nombre,$apellido,$direccion,$telefono,$correo,$usuario,$contrasena,$con_contra,$ambiente,$fecha_registro);
 			$data["titulo"] = "Usuarios";
 			$this->index();
 		}
@@ -69,6 +77,7 @@
 			$correo = $_POST['Correo'];
 			$usuario = $_POST['Usuario'];
 			$contrasena = $_POST['Contrasena'];
+			$con_contra=$_POST['Conficontra'];
 			$ambiente = $_POST['Ambiente'];
 			//$fecha_registro = $_POST['Fecha_registro'];
 
@@ -78,9 +87,9 @@
 			
 
 			$usuarios = new Usuarios_model();
-			$usuarios->insertarAprendiz($sede,$ti,$nidentificacion,$nombre,$apellido,$direccion,$telefono,$correo,$usuario,$contrasena,$ambiente,$fecha_registro);
+			$usuarios->insertarAprendiz($sede,$ti,$nidentificacion,$nombre,$apellido,$direccion,$telefono,$correo,$usuario,$contrasena,$con_contra,$ambiente,$fecha_registro);
 			$data["titulo"] = "Usuarios";
-			header("Location:index.php");
+			$this->indexapre();
 		}
 
 		public function verifica(){

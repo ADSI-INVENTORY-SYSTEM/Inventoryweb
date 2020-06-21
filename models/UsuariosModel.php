@@ -23,46 +23,65 @@
 			return $this->usuarios;
 		}
 		
-		public function insertar($sede,$rol,$ti,$nidentificacion,$nombre,$apellido,$direccion,$telefono,$correo,$usuario,$contrasena,$ambiente,$fecha_registro){
+		public function insertar($sede,$rol,$ti,$nidentificacion,$nombre,$apellido,$direccion,$telefono,$correo,$usuario,$contrasena,$con_contra,$ambiente,$fecha_registro){
 			
 			$consulta= $this->db->query("SELECT * FROM usuarios Where Identificacion = '$nidentificacion' ");
 			$resultado = mysqli_fetch_array($consulta);
 			$consulta=null;
 
-			if ($resultado > 0) {
-				echo '<script>
-				alert("Usuario Ya Registrado");
-				window.history.go(-1);
-				</script>';
-			}
+			include 'recuperacontra/funcs.php';
+			if (validaPassword($contrasena, $con_contra)) {
+				if ($resultado > 0) {
+					echo '<script>
+					alert("Usuario Ya Registrado");
+					window.history.go(-1);
+					</script>';
+				}
+				else{
+					$contrasena = $_POST['Contrasena'];
+					date_default_timezone_set("america/bogota"); 
+					$fecha_registro  =date('Y-m-d H:i:s');
+					$pass_cifrada = password_hash($contrasena, PASSWORD_DEFAULT);
+					$resultado = $this->db->query("INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,$rol,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')");
+					//echo"INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,$rol,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')";
+				}
+			}	
 			else{
-				$contrasena = $_POST['Contrasena'];
-				date_default_timezone_set("america/bogota"); 
-				$fecha_registro  =date('Y-m-d H:i:s');
-				$pass_cifrada = password_hash($contrasena, PASSWORD_DEFAULT);
-				$resultado = $this->db->query("INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,$rol,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')");
+				echo '<script>
+					alert("Las Contraseñas No Coinciden");
+					window.history.go(-1);
+					</script>';
 			}
 		}
 
-		public function insertarAprendiz($sede,$ti,$nidentificacion,$nombre,$apellido,$direccion,$telefono,$correo,$usuario,$contrasena,$ambiente,$fecha_registro){
+		public function insertarAprendiz($sede,$ti,$nidentificacion,$nombre,$apellido,$direccion,$telefono,$correo,$usuario,$contrasena,$con_contra,$ambiente,$fecha_registro){
 			
 			$consulta= $this->db->query("SELECT * FROM usuarios Where Identificacion = '$nidentificacion' ");
 			$resultado = mysqli_fetch_array($consulta);
 			$consulta=null;
-
-			if ($resultado > 0) {
-				echo '<script>
-				alert("Usuario Ya Registrado");
-				window.history.go(-1);
-				</script>';
+			include 'recuperacontra/funcs.php';
+			if (validaPassword($contrasena, $con_contra)) {
+				if ($resultado > 0) {
+					echo '<script>
+					alert("Usuario Ya Registrado");
+					window.history.go(-1);
+					</script>';
+				}
+				else{
+					$contrasena = $_POST['Contrasena'];
+					date_default_timezone_set("america/bogota"); 
+					$fecha_registro  =date('Y-m-d H:i:s');
+					$pass_cifrada = password_hash($contrasena, PASSWORD_DEFAULT);
+					$resultado = $this->db->query("INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,4,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')");
+					//echo "INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,4,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')";
+				}
 			}
 			else{
-				$contrasena = $_POST['Contrasena'];
-				date_default_timezone_set("america/bogota"); 
-				$fecha_registro  =date('Y-m-d H:i:s');
-				$pass_cifrada = password_hash($contrasena, PASSWORD_DEFAULT);
-				$resultado = $this->db->query("INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,4,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')");
-			}
+				echo '<script>
+					alert("Las Contraseñas No Coinciden");
+					window.history.go(-1);
+					</script>';
+			}	
 		}
 
 		public function ingresa($usuario,$contrasena){
