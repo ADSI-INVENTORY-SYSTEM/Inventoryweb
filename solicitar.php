@@ -97,13 +97,13 @@
 												<span class="mdl-textfield__error">Número Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="email" id="Correo" name="Correo">
+												<input class="mdl-textfield__input" type="email" id="Correo" name="Correo"  value="<?php echo $_SESSION['correo'];?>">
 												<label class="mdl-textfield__label" for="emailAdmin">Correo</label>
 												<span class="mdl-textfield__error">Correo Invalido</span>
 											</div>
 
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" cols="30" rows="10" id="mensaje" name="mensaje" value="<?php echo $_SESSION['correo'];?>">
+												<input class="mdl-textfield__input" type="text" cols="30" rows="10" id="mensaje" name="mensaje">
 												<label class="mdl-textfield__label" for="">Mensaje</label>
 												<span class="mdl-textfield__error">Mensaje</span>
 											</div>
