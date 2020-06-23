@@ -30,7 +30,7 @@
 				</div>
 				<div class="full-width header-well-text">
 					<p class="text-condensedLight">
-						Bienvenido señ@r Usuario a continuación encontrará una interfaz<br> 
+						Bienvenido <?php echo $_SESSION['usuari'];?> a continuación encontrará una interfaz<br> 
 						sencilla para la solicitud de CPU y sus repectivos datos.
 					</p>
 				</div>
