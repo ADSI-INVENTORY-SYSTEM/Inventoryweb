@@ -70,7 +70,7 @@
             $cantidad = $_POST["Cantidad"];
             $ambiente = $_POST["Ambiente"];
 
-            $nombre=$_FILES['imagen']['name'];
+            $nombre=$_FILES['foto']['name'];
 
             $activos = new Activos_model();
             $activos->modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$nombre);
