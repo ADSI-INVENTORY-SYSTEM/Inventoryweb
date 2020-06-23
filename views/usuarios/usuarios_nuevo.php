@@ -33,7 +33,8 @@
 					</p>
 				</div>
 			</section>
-			<div class="container">				
+			<div class="container">
+			<a href="index1.php"><i class="fas fa-arrow-left"><button id="guardar" name="guardar" type="submit" class="btn-cancelar"></button></i></a>				
 			<form id="nuevo" name="nuevo" method="POST" action="index1.php?c=Usuarios&a=guarda" autocomplete="off">
 				<div class="mdl-tabs__panel is-active" id="tabNewAdmin">
 					<div class="mdl-grid">
@@ -53,8 +54,7 @@
 							$resultado = mysqli_query($con1, "SELECT * FROM sede");
 							$resultado1 = mysqli_num_rows($resultado);
 							?>
-							<label>Sede</label>
-							<div class="form-group">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<select name="Sede_idSede" id="sede">
 							<option value="">Seleccione Ubicación...</option>
 								<?php  
@@ -76,8 +76,8 @@
 								$resultado = mysqli_query($con1, "SELECT * FROM rol");
 								$resultado1 = mysqli_num_rows($resultado);
 							?>
-							<label>Rol</label>
-							<div class="form-group">
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<select name="Rol_idRol" id="rol">
 							<option value="">Seleccione Rol...</option>
 								<?php  
@@ -99,8 +99,8 @@
 								$resultado = mysqli_query($con1, "SELECT * FROM TipoIdentificacion");
 								$resultado1 = mysqli_num_rows($resultado);
 							?>
-							<label>Tipo Identificación</label>
-							<div class="form-group">
+							
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 							<select name="TipoIdentificacion_idTipoIdentificacion" id="ti">
 							<option value="">Tipo Identificación...</option>
 								<?php  
@@ -177,7 +177,7 @@
 						<span class="mdl-textfield__error">Ambiente Invalido</span> 
 					</div>
 				
-					<button id="guardar" name="guardar" type="submit" class="btn btn-primary" style="float:left;">Guardar</button>
+					<button id="guardar" name="guardar" type="submit" class="btn-guardar">Agregar</button>
 				</div>
 
 						</div>	
