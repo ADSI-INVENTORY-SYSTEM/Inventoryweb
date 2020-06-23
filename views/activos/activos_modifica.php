@@ -143,7 +143,7 @@
 					
                     <div class="">
                         <label>Imagen</label>
-                        <img src="../uploads/<?php echo $data["activos"]["Imagen"]?>"/>
+                        <img src="imagenes/<?php echo $data["activos"]["Imagen"]?>"/>
                         <input type="file" class="form-control" id="imagen" name="imagen" />
                     </div>
 				
