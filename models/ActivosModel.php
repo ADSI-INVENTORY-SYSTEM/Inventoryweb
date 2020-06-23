@@ -63,7 +63,7 @@
             $nombre=$_FILES['foto']['name'];
            
 
-            $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$nombreima', Ambiente= $ambiente WHERE idActivo= '$id'");
+            $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$nombre', Ambiente= $ambiente WHERE idActivo= '$id'");
             //echo "UPDATE activos SET Nserial = $serial, Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$nombre' WHERE idActivo= '$id'";
         }
 
