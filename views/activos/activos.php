@@ -34,7 +34,7 @@ session_start();
 				<div class="full-width header-well-text">
 					<p class="text-condensedLight">
 						Bienvenido <?php echo $_SESSION['usuari'];?> a continuación encontrará una interfaz <br> 
-						sencilla con la lista de activos registrados en el sistema para interactuar.
+						sencilla con la lista de activos registrados en el sistema.
 					</p>
 				</div>
 			</section>
@@ -66,6 +66,7 @@ session_start();
 								<td>Nombre Activo</td>
 								<td>Precio</td>
 								<td>Cantidad</td>
+								<td>Ambiente</td>
                                 <td>Imagen</td>
 								<td colspan="2">Acciones</td>
 							</tr>
@@ -83,6 +84,7 @@ session_start();
 								echo "<td>".$dato["NombreActivo"]."</td>";
 								echo "<td>".$dato["Precio"]."</td>";
 								echo "<td>".$dato["Cantidad"]."</td>";
+								echo "<td>".$dato["Ambiente"]."</td>";
 							    echo "<td>"."<img src='imagenes/".$dato["Imagen"]."'/>"."</td>";
 								echo "<td><a href='index2.php?c=Activos&a=modificar&id=".$dato["idActivo"]."' class='btn btn-warning'>Modificar</a></td>";
 								echo "<td><a href='index2.php?c=Activos&a=eliminar&id=".$dato["idActivo"]."' class='btn btn-danger'>Eliminar</a></td>";

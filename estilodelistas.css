@@ -35,7 +35,7 @@ img{
     margin-block-start: 25px;
     margin-block-end: 10px;
     position: relative;
-    
+
 }
 .btn-ver{
     background: transparent;
@@ -43,6 +43,32 @@ img{
     float: right;
 
 }
+
+.btn-guardar{
+    padding:10px;
+    margin-left:100px;
+    background: dodgerblue;
+    margin-block-start: 25px;
+    border-radius: 10px;
+    border-color: rgb(22, 122, 223);
+    text-transform: none;
+    display: inline-block;
+    text-justify: center;
+    color:white;
+}
+
+.btn-cancelar{
+    padding:10px;
+    margin-left:80px;
+    margin-block-start: 10px;
+    border-radius: 10px;
+    text-transform: none;
+    display: inline-block;
+    text-justify: center;
+    color:white;
+
+}
+
 #btn-generar{
     padding: 3px;
     background: rgba(236, 106, 106, 0.842);
@@ -66,18 +92,26 @@ img{
     margin-top: 15px;
     display: flex;
     justify-content: flex-end;
+    border-radius: 15px;
+}
+.paginador li{
+    margin-left: 3px;
 }
 .paginador a, .paginaseleccionada {
-    color: #428bca;
-    border: 1px solid #ddd;
+    color: white;
+    border: 3px;
+    background: #3F51B5;
     padding: 5px;
     display: inline-block;
     font-size: 14px;
     text-align: center;
     width: 35px;
+    border-radius: 15px;
+    border-color: blue;
+
 }
 .paginador a:hover {
-    background: #ddd;
+    background:dodgerblue;
 }
 .paginaseleccionada {
     color: #FFF;
