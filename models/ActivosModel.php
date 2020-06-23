@@ -54,16 +54,16 @@
             }
         }
 
-        public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$nombreima)
+        public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$nombre)
         {
             $carpeta="imagenes/";
             opendir($carpeta);
-            $destino=$carpeta.$_FILES['imagen']['name'];
-            copy($_FILES['imagen']['tmp_name'],$destino);
-            $nombre=$_FILES['imagen']['name'];
+            $destino=$carpeta.$_FILES['foto']['name'];
+            copy($_FILES['foto']['tmp_name'],$destino);
+            $nombre=$_FILES['foto']['name'];
            
 
-            $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$nombre', Ambiente= $ambiente WHERE idActivo= '$id'");
+            $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$nombreima', Ambiente= $ambiente WHERE idActivo= '$id'");
             //echo "UPDATE activos SET Nserial = $serial, Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$nombre' WHERE idActivo= '$id'";
         }
 
