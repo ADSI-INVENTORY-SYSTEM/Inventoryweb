@@ -29,28 +29,40 @@
 			$resultado = mysqli_fetch_array($consulta);
 			$consulta=null;
 
-			include 'funcs.php';
-			if (validaPassword($contrasena, $con_contra)) {
-				if ($resultado > 0) {
-					echo '<script>
-					alert("Usuario Ya Registrado");
-					window.history.go(-1);
-					</script>';
-				}
-				else{
-					$contrasena = $_POST['Contrasena'];
-					date_default_timezone_set("america/bogota"); 
-					$fecha_registro  =date('Y-m-d H:i:s');
-					$pass_cifrada = password_hash($contrasena, PASSWORD_DEFAULT);
-					$resultado = $this->db->query("INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,$rol,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')");
-					//echo"INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,$rol,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')";
-				}
-			}	
-			else{
+			if(empty($sede) || empty($rol) || empty($ti) || empty($nidentificacion) || empty($nombre) || empty($apellido) 
+			|| empty($direccion) || empty($telefono) || empty($correo) || empty($usuario) || empty($contrasena) || empty($con_contra) || empty($ambiente) )
+			{
 				echo '<script>
+                alert("Todos los campos son obligatorios"); 
+                window.history.go(-1);
+                </script>';
+			}
+			else
+			{
+				include 'funcs.php';
+				if (validaPassword($contrasena, $con_contra)) 
+				{
+					if ($resultado > 0) {
+						echo '<script>
+						alert("Usuario Ya Registrado");
+						window.history.go(-1);
+						</script>';
+					}
+					else{
+						$contrasena = $_POST['Contrasena'];
+						date_default_timezone_set("america/bogota"); 
+						$fecha_registro  =date('Y-m-d H:i:s');
+						$pass_cifrada = password_hash($contrasena, PASSWORD_DEFAULT);
+						$resultado = $this->db->query("INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,$rol,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')");
+						//echo"INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,$rol,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')";
+					}
+				}	
+				else{
+					echo '<script>
 					alert("Las Contraseñas No Coinciden");
 					window.history.go(-1);
 					</script>';
+				}
 			}
 		}
 
@@ -59,29 +71,42 @@
 			$consulta= $this->db->query("SELECT * FROM usuarios Where Identificacion = '$nidentificacion' ");
 			$resultado = mysqli_fetch_array($consulta);
 			$consulta=null;
-			include 'funcs.php';
-			if (validaPassword($contrasena, $con_contra)) {
-				if ($resultado > 0) {
-					echo '<script>
-					alert("Usuario Ya Registrado");
-					window.history.go(-1);
-					</script>';
+
+			if(empty($sede) || empty($rol) || empty($ti) || empty($nidentificacion) || empty($nombre) || empty($apellido) 
+			|| empty($direccion) || empty($telefono) || empty($correo) || empty($usuario) || empty($contrasena) || empty($con_contra) || empty($ambiente) )
+			{
+				echo '<script>
+                alert("Todos los campos son obligatorios"); 
+                window.history.go(-1);
+                </script>';
+			}
+			else
+			{
+				include 'funcs.php';
+				if (validaPassword($contrasena, $con_contra)) {
+					if ($resultado > 0) {
+						echo '<script>
+						alert("Usuario Ya Registrado");
+						window.history.go(-1);
+						</script>';
+					}
+					else{
+						$contrasena = $_POST['Contrasena'];
+						date_default_timezone_set("america/bogota"); 
+						$fecha_registro  =date('Y-m-d H:i:s');
+						$pass_cifrada = password_hash($contrasena, PASSWORD_DEFAULT);
+						$resultado = $this->db->query("INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,4,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')");
+						//echo "INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,4,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')";
+					}
 				}
 				else{
-					$contrasena = $_POST['Contrasena'];
-					date_default_timezone_set("america/bogota"); 
-					$fecha_registro  =date('Y-m-d H:i:s');
-					$pass_cifrada = password_hash($contrasena, PASSWORD_DEFAULT);
-					$resultado = $this->db->query("INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,4,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')");
-					//echo "INSERT INTO usuarios(Sede_idSede,Rol_idRol,TipoIdentificacion_idTipoIdentificacion,Identificacion,Nombres,Apellidos,Direccion,Telefono,Correo,Usuario,Contrasena,Ambiente,Fecha_registro) VALUES ($sede,4,$ti,$nidentificacion,'$nombre','$apellido','$direccion',$telefono,'$correo','$usuario','$pass_cifrada',$ambiente,'$fecha_registro')";
-				}
+					echo '<script>
+						alert("Las Contraseñas No Coinciden");
+						window.history.go(-1);
+						</script>';
+				}	
 			}
-			else{
-				echo '<script>
-					alert("Las Contraseñas No Coinciden");
-					window.history.go(-1);
-					</script>';
-			}	
+			
 		}
 
 		public function ingresa($usuario,$contrasena){

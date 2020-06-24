@@ -56,6 +56,18 @@
 				<i class="zmdi zmdi-calendar tile-icon"></i>
 				</a>
 			</article>
+			</article>
+			<article class="full-width tile">
+				<a href="reporteambiente.php">
+				<div class="tile-text">
+					<span class="text-condensedLight">
+						<br>
+						<small>Por Ambiente</small>
+					</span>
+				</div>
+				<i class="zmdi zmdi-calendar tile-icon"></i>
+				</a>
+			</article>
 		</section>
 	</section>
 </body>

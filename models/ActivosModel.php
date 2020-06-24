@@ -30,41 +30,64 @@
             $consulta = $this->db->query("SELECT * FROM activos WHERE Nserial = '$serial'"); 
             $resultado = mysqli_fetch_array($consulta);
 
-            if ($resultado > 0) {
-                
+            if (empty($serial)|| empty($sede) || empty($proveedor) || empty($categoria) || empty($estado) || empty($nombre) || empty($precio) || empty($cantidad) || empty($ambiente) || empty($nombreima)) 
+            {
                 echo '<script>
-				alert("Serial De Activo Ya Registrado"); 
-				window.history.go(-1);
-				</script>';
+                alert("Todos los campos son obligatorios"); 
+                window.history.go(-1);
+                </script>';
             }
             else
             {
-                $carpeta="imagenes/";
-                opendir($carpeta);
-                $destino=$carpeta.$_FILES['foto']['name'];
-                copy($_FILES['foto']['tmp_name'],$destino);
-                $nombre=$_FILES['foto']['name'];
-                date_default_timezone_set("america/bogota"); 
-				$fecha_registro  =date('Y-m-d H:i:s');
-               
+                if ($resultado > 0) {
+                
+                    echo '<script>
+                    alert("Serial De Activo Ya Registrado"); 
+                    window.history.go(-1);
+                    </script>';
+                }
+                else
+                {
+                    $carpeta="imagenes/";
+                    opendir($carpeta);
+                    $destino=$carpeta.$_FILES['foto']['name'];
+                    copy($_FILES['foto']['tmp_name'],$destino);
+                    $nombre=$_FILES['foto']['name'];
+                    date_default_timezone_set("america/bogota"); 
+                    $fecha_registro  =date('Y-m-d H:i:s');
+                   
+        
+                    $resultado = $this->db->query("INSERT INTO activos (Nserial,Sede_idSede,Proveedor_idProveedor,Categoria_idcategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen,Fecha_registro,Ambiente) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombrea',$precio,$cantidad,'$nombre','$fecha_registro',$ambiente)");
+                    //echo "INSERT INTO activos ('Serial',Sede_idSede,Proveedor_idProveedor,Categoria_idCategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombrea',$precio,$cantidad,'$nombre')";
     
-                $resultado = $this->db->query("INSERT INTO activos (Nserial,Sede_idSede,Proveedor_idProveedor,Categoria_idcategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen,Fecha_registro,Ambiente) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombrea',$precio,$cantidad,'$nombre','$fecha_registro',$ambiente)");
-                //echo "INSERT INTO activos ('Serial',Sede_idSede,Proveedor_idProveedor,Categoria_idCategoria,Estado_idEstado,NombreActivo,Precio,Cantidad,Imagen) VALUES ('$serial',$sede,$proveedor,$categoria,$estado,'$nombrea',$precio,$cantidad,'$nombre')";
-
+                }
             }
         }
 
-        public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$nombre)
+        public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$fotoac,$nombre)
         {
-            $carpeta="imagenes/";
-            opendir($carpeta);
-            $destino=$carpeta.$_FILES['foto']['name'];
-            copy($_FILES['foto']['tmp_name'],$destino);
-            $nombre=$_FILES['foto']['name'];
-           
+            $consulta= $this->db->query("SELECT * FROM activos Where idActivo= '$id'");
+            $resul= mysqli_fetch_array($consulta);
 
-            $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$nombre', Ambiente= $ambiente WHERE idActivo= '$id'");
+            $fotoac= $resul["Imagen"];
+            
+            $nombre=$_FILES['foto']['name'];
+
+            if($nombre != "") {
+                $carpeta="imagenes/";
+                opendir($carpeta);
+                $destino=$carpeta.$_FILES['foto']['name'];
+                $fotoac=$_FILES['foto']['name'];
+            }
+            
+            $resultado = $this->db->query("UPDATE activos SET Nserial = '$serial', Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$fotoac', Ambiente= $ambiente WHERE idActivo= '$id'");
             //echo "UPDATE activos SET Nserial = $serial, Sede_idSede=$sede, Proveedor_idProveedor=$proveedor, Categoria_idcategoria=$categoria, Estado_idEstado=$estado, NombreActivo='$nombrea', Precio=$precio, Cantidad=$cantidad, Imagen='$nombre' WHERE idActivo= '$id'";
+
+            if($nombre != "")
+            {
+                copy($_FILES['foto']['tmp_name'],$destino);
+                
+            }
         }
 
         public function get_activo($id)

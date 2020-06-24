@@ -102,6 +102,34 @@ function buscar_datos4(consulta){
 		console.log("error");
 	});
 }
+/* Funcion buscar ambiente */
+
+$(buscar_datos5());
+
+function buscar_datos5(consulta){
+	$.ajax({
+		url: 'Buscaramb.php' ,
+		type: 'POST' ,
+		dataType: 'html',
+		data: {consulta: consulta},
+	})
+	.done(function(respuesta){
+		$("#datos").html(respuesta);
+	})
+	.fail(function(){
+		console.log("error");
+	});
+}
+
+
+$(document).on('keyup','#caja_busqueda5', function(){
+	var valor = $(this).val();
+	if (valor != "") {
+		buscar_datos5(valor);
+	}else{
+		buscar_datos5();
+	}
+});
 
 
 $(document).on('keyup','#caja_busqueda4', function(){
