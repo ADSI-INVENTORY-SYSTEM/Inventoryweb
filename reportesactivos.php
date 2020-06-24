@@ -65,7 +65,7 @@
 						<small>Por Ambiente</small>
 					</span>
 				</div>
-				<i class="zmdi zmdi-calendar tile-icon"></i>
+				<i class="zmdi zmdi-my-location tile-icon"></i>
 				</a>
 			</article>
 		</section>
