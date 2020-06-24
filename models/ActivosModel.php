@@ -25,7 +25,7 @@
         }
 
 
-        public function insertar($serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$nombreima)
+        public function insertar($serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$nombre)
         {
             $consulta = $this->db->query("SELECT * FROM activos WHERE Nserial = '$serial'"); 
             $resultado = mysqli_fetch_array($consulta);
