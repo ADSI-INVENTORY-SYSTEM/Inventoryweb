@@ -30,7 +30,7 @@
             $consulta = $this->db->query("SELECT * FROM activos WHERE Nserial = '$serial'"); 
             $resultado = mysqli_fetch_array($consulta);
 
-            if (empty($serial)|| empty($sede) || empty($proveedor) || empty($categoria) || empty($estado) || empty($nombre) || empty($precio) || empty($cantidad) || empty($ambiente) || empty($nombreima)) 
+            if (empty($serial)|| empty($sede) || empty($proveedor) || empty($categoria) || empty($estado) || empty($nombrea) || empty($precio) || empty($cantidad) || empty($ambiente) || empty($nombre)) 
             {
                 echo '<script>
                 alert("Todos los campos son obligatorios"); 
@@ -64,7 +64,7 @@
             }
         }
 
-        public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$fotoac,$nombre)
+        public function modificar($id,$serial,$sede,$proveedor,$categoria,$estado,$nombrea,$precio,$cantidad,$ambiente,$nombre)
         {
             $consulta= $this->db->query("SELECT * FROM activos Where idActivo= '$id'");
             $resul= mysqli_fetch_array($consulta);
