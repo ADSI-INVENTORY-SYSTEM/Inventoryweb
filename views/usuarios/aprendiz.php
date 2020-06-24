@@ -17,6 +17,7 @@
     <div class="d-flex justify-content-center h-100">
       <div class="user_card">
         <div class="d-flex justify-content-center form_container">
+		<a href="index.php"><i class="fas fa-arrow-left"><button id="guardar" name="guardar" type="submit" class="btn-cancelar"></button></i></a>				
           <form id="nuevo" name="nuevo" method="POST" action="index1.php?c=Usuarios&a=guardaAprendiz" autocomplete="off">
 		  <div class="mdl-tabs__panel is-active" id="tabNewAdmin">
 		  	<div class="mdl-grid">
@@ -59,7 +60,7 @@
 							<span class="input-group-text"><i class="fas fa-id-badge"></i></span>
 						</div>
 					<select name="TipoIdentificacion_idTipoIdentificacion" id="ti">
-						<option value="">Seleccione Identificacion...</option>	
+						<option value="">Seleccione Identifica.</option>	
 						<?php  
 							if ($resultado1 > 0) {
 								while($ti= mysqli_fetch_array($resultado)){
@@ -146,11 +147,6 @@
 					</div>
 				
 					<button id="guardar" name="guardar" type="submit" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:left;">Registrar</button>
-					
-					<a href="local/index.php">	
-					<button id="guardar" name="guardar" type="submit" id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #3F51B5; float:right;">Cancelar</button>
-					</a>
-
 				</div>
 			</div>
 			</div>		
