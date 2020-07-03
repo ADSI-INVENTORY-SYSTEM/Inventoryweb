@@ -661,7 +661,7 @@ html, body{
 .product-card{
 	display: inline-block;
 	margin: 5px;
-	width: 300px;
+	width: 25%;
 	text-align: left;
 }
 .product-card .mdl-card__actions button,
