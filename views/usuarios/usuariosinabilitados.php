@@ -6,7 +6,7 @@ session_start();
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Listado de Usuarios</title>
+		<title>Usuarios Inhabilitados</title>
 		<link rel="stylesheet" type="text/css" href="estilodelistas.css">
 		<?php include 'scripts.php'; ?>
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -33,24 +33,16 @@ session_start();
 				<div class="full-width header-well-text">
 					<p class="text-condensedLight">
 						Bienvenido <?php echo $_SESSION['usuari'];?> a continuación encontrará una interfaz <br> 
-						sencilla con la lista de usuarios registrados en el sistema.
+						sencilla con la lista de usuarios inhabilitados en el sistema.
 					</p>
 				</div>
 			</section>
-			<section class="full-width text-center" style="padding: 5px;">
+			<section class="full-width text-center" style="padding: 10px;">
 				<div class="full-width panel mdl-shadow--2dp">
 					<div class="full-width panel-tittle bg-primary text-center tittles">
-						Usuarios Registrados
+						Usuarios Inhabilitados
 					</div>
 				</div>
-				<p class="text-left">
-					<a href="index1.php?c=Usuarios&a=nuevo" class="btn-agregar">
-					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-adAdmin">
-						<i class="zmdi zmdi-plus"></i>	
-					</button>
-					</a>
-					<div class="mdl-tooltip" for="btn-adAdmin">Agregar Usuario</div>
-				</p>
 								
 				<div class="table-responsive">
 					<table class="tabla_datos">
@@ -73,7 +65,7 @@ session_start();
 						</thead>
 						
 						<tbody>
-							<?php foreach($data["usuarios"] as $dato) {
+							<?php foreach($data["usuariosin"] as $dato) {
 								echo "<tr>";
 								echo "<td>".$dato["idUsuario"]."</td>";
 								echo "<td>".$dato["Identificacion"]."</td>";
@@ -87,8 +79,7 @@ session_start();
 								echo "<td>".$dato["Correo"]."</td>";
 								echo "<td>".$dato["Usuario"]."</td>";
 								echo "<td>".$dato["Ambiente"]."</td>";
-								echo "<td><a href='index1.php?c=Usuarios&a=modificar&id=".$dato["idUsuario"]."' class='btn btn-warning'>Modificar</a></td>";
-								echo "<td><a href='index1.php?c=Usuarios&a=eliminar&id=".$dato["idUsuario"]."' class='btn btn-danger'>Inhabilitar</a></td>";
+								echo "<td><a href='indexusuin.php?c=Usuariosin&a=habilitar&id=".$dato["idUsuario"]."' class='btn btn-warning'>Habilitar</a></td>";
 								echo "</tr>";
 							}
 							?>
@@ -96,20 +87,6 @@ session_start();
 						
 					</table>
 				</div>
-					<div class="paginador">
-						<ul>
-							<li><a href="?pagina=<?php echo 1; ?>">|<<</a></li>
-							<li><a href="?pagina=<?php echo $pagina-1; ?>"><<<</a></li>
-							<?php
-							require("paginacion.php");
-							for ($i=1; $i<=$total_pagina ; $i++) { 
-								echo '<li><a href="?pagina='.$i.'">'.$i.'</a></li>';
-							}  
-							?>
-							<li><a href="?pagina=<?php echo $pagina+1; ?>">>>></a></li>
-							<li><a href="?pagina=<?php echo $total_pagina; ?>">>>|</a></li>
-						</ul>	
-					</div>
 			</section>
 		</section>
 	</body>
