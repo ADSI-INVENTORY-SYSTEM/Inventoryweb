@@ -54,6 +54,16 @@
 									</div>
 								</a>
 							</li>
+							<li class="full-width">
+								<a href="indexusuin.php" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-refresh-sync-problem"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Usuarios inhabilitados
+									</div>
+								</a>
+							</li>
 						</ul>
 					</li>
 					<?php } ?>
@@ -84,16 +94,7 @@
 									</div>
 								</a>
 							</li>
-							<li class="full-width">
-								<a href="indexusuin.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-refresh-sync-problem"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Usuarios inhabilitados
-									</div>
-								</a>
-							</li>
+							
 						</ul>
 					</li>
 					<?php }
