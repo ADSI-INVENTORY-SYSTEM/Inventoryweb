@@ -662,10 +662,10 @@ html, body{
 	width: 25%;
 	margin-bottom: 20px;
 	text-align: left;
+	cursor:pointer;
 }
 .product-card:hover {
 	transform: scale(1.1, 1.1);
-	cursor:pointer;
 }
 .product-card .mdl-card__actions button,
 .product-card .mdl-card__actions a{
