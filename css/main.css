@@ -660,8 +660,8 @@ html, body{
 .product-card{
 	display: inline-block;
 	margin: 5px;
-	width: 25%;
-	height: 25%;
+	width: 300px;
+	height: 300px;
 	margin-bottom: 20px;
 	text-align: left;
 }
