@@ -1,4 +1,3 @@
-/* Copyright 2016 Carlos Eduardo Alfaro Orellana*/
 /*=====================================================
 					Tipografia
 ======================================================*/
@@ -57,7 +56,7 @@ html, body{
 }
 .img-responsive{
 	width: 100%;
-	height: 250px;
+	height: 70% !important;
 }
 .divider-menu-h{
 	height: 0 !important;
@@ -662,8 +661,10 @@ html, body{
 	display: inline-block;
 	margin: 5px;
 	width: 25%;
-	height: 300px;
 	text-align: left;
+}
+.product-card:hover {
+    transform: scale(1.1, 1.1);
 }
 .product-card .mdl-card__actions button,
 .product-card .mdl-card__actions a{
