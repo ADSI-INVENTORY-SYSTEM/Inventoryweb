@@ -1,0 +1,186 @@
+table {
+    border-collapse: collapse;
+    font-size: 9.9pt;
+    width: 50%;
+    padding: 10px;
+}
+table th {
+    text-align: center;
+    padding: 10px;
+    background: blue;
+    color: white;
+}
+table td {
+    padding: 10px;
+}
+table tr:nth-child(odd) {
+    background: gray;
+}
+.ntn_agregar {
+    border: all;
+    padding: 30px;
+    text-align: left;
+}
+.tablareporte {
+    border-collapse: collapse;
+    padding: 20px;
+}
+
+img{
+    width: 50px;
+}
+#btn-adAdmin{
+    padding: 10px;
+    margin-left: 10px;
+    margin-block-start: 25px;
+    margin-block-end: 10px;
+    position: relative;
+
+}
+.btn-ver{
+    background: transparent;
+    color: #3F51B5;
+    float: right;
+
+}
+
+.btn-guardar{
+    padding:10px;
+    margin-left:100px;
+    background: dodgerblue;
+    margin-block-start: 25px;
+    border-radius: 10px;
+    border-color: rgb(22, 122, 223);
+    text-transform: none;
+    display: inline-block;
+    text-justify: center;
+    color:white;
+}
+
+.btn-cancelar{
+    padding:10px;
+    margin-left:80px;
+    margin-block-start: 10px;
+    border-radius: 10px;
+    text-transform: none;
+    display: inline-block;
+    text-justify: center;
+    color:white;
+
+}
+
+#btn-generar{
+    padding: 3px;
+    background: rgba(236, 106, 106, 0.842);
+    float: rigth;
+    margin-block-end:25px;
+}
+
+.iniciale{
+    margin-block-start: 25px;
+    padding: 6px;
+}
+.finale{
+    margin-block-start: 25px;
+    padding: 6px;
+}
+
+.paginador ul {
+    padding: 15px;
+    list-style: none;
+    background: #FFF;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 15px;
+}
+.paginador li{
+    margin-left: 3px;
+}
+.paginador a, .paginaseleccionada {
+    color: white;
+    border: 3px;
+    background: #3F51B5;
+    padding: 5px;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    width: 35px;
+    border-radius: 15px;
+    border-color: blue;
+
+}
+.paginador a:hover {
+    background:dodgerblue;
+}
+.paginaseleccionada {
+    color: #FFF;
+    background: #428bca;
+    border: 1px solid #428bca;
+}
+
+.prevPhoto {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+    height: 150px;
+    border: 1px solid #CCC;
+    position: relative;
+    cursor: pointer;
+    background: url(../images/uploads/user.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: auto;
+}
+.prevPhoto label{
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+.prevPhoto img{
+	width: 100%;
+	height: 100%;
+}
+.upimg, .notBlock{
+	display: none !important;
+}
+.errorArchivo{
+	font-size: 16px;
+	font-family: arial;
+	color: #cc0000;
+	text-align: center;
+	font-weight: bold; 
+	margin-top: 10px;
+}
+.delPhoto{
+	color: #FFF;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	background: red;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	z-index: 10;
+}
+#tbl_list_productos img{
+	width: 50px;
+}
+.imgProductoDelete{
+	width: 175px;
+}
+.selecto option:first-child{
+    display: none;
+}
