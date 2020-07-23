@@ -79,7 +79,7 @@ session_start();
 								echo "<td>".$dato["Correo"]."</td>";
 								echo "<td>".$dato["Usuario"]."</td>";
 								echo "<td>".$dato["Ambiente"]."</td>";
-								echo "<td><a href='indexusuin.php?c=Usuariosin&a=habilitar&id=".$dato["idUsuario"]."' class='btn btn-habilitar'>Habilitar</a></td>";
+								echo "<td><a href='indexusuin.php?c=Usuariosin&a=habilitar&id=".$dato["idUsuario"]."' class='btn-habilitar'>Habilitar</a></td>";
 								echo "</tr>";
 							}
 							?>
