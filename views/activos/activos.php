@@ -97,7 +97,7 @@ session_start();
 				</div>
 				<div class="paginador">
 					<ul>
-						<?php require("paginacion.php"); ?>
+						<?php require("paginacion2.php"); ?>
 						<li><a href="?pagina=<?php echo 1; ?>">|<<</a></li>
 						<li><a href="?pagina=<?php echo $pagina-1; ?>"><<<</a></li>
 						<?php
