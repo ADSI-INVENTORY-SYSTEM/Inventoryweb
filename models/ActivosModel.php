@@ -101,7 +101,7 @@
 
         public function eliminar($id){
 			
-			$resultado = $this->db->query("DELETE FROM activos WHERE idActivo = '$id'");
+			$resultado = $this->db->query("UPDATE activos SET Estado_idEstado = 3 WHERE idActivo = '$id'");
 			//echo"DELETE FROM activos WHERE idActivo = '$id'";
 		}
 

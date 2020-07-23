@@ -87,7 +87,7 @@ session_start();
 								echo "<td>".$dato["Ambiente"]."</td>";
 							    echo "<td>"."<img src='imagenes/".$dato["Imagen"]."'/>"."</td>";
 								echo "<td><a href='index2.php?c=Activos&a=modificar&id=".$dato["idActivo"]."' class='btn btn-warning'>Modificar</a></td>";
-								echo "<td><a href='index2.php?c=Activos&a=eliminar&id=".$dato["idActivo"]."' class='btn btn-danger'>Eliminar</a></td>";
+								echo "<td><a href='index2.php?c=Activos&a=eliminar&id=".$dato["idActivo"]."' class='btn btn-danger'>Inhabilitar</a></td>";
 								
 								echo "</tr>";
 							 }
