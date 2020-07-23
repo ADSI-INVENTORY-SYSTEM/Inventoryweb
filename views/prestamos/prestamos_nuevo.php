@@ -92,7 +92,7 @@
 													<input type="date" class="form-control" id="final" name="final" />
 												</div>
 											
-												<button id="guardar" name="guardar" type="submit" class="btn btn-primary">Guardar</button>
+												<button id="guardar" name="guardar" type="submit" class="btn-guardar" >Guardar</button>
 											</div>
 										</div>
 									</div>

@@ -46,15 +46,20 @@ img{
 
 .btn-guardar{
     padding:10px;
-    margin-left:100px;
+    margin: auto;
     background: dodgerblue;
+    float: right;
     margin-block-start: 25px;
-    border-radius: 10px;
+    border-radius: 0.25rem;
     border-color: rgb(22, 122, 223);
-    text-transform: none;
-    display: inline-block;
-    text-justify: center;
+    text-align: center;
     color:white;
+    box-shadow: 5px 5px 10px rgba(7, 31, 245, 0.842) ;
+}
+.btn-guardar:hover{
+    background-color: rgb(32, 185, 32);
+    box-shadow: 5px 5px 10px rgba(16, 131, 1, 0.842) ;
+    border-color: rgb(26, 168, 13);
 }
 
 .btn-cancelar{
@@ -120,11 +125,29 @@ img{
 }
 
 .btn-habilitar {
+    display: inline-block;
+    font-weight: 400;
     color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    color: white;
     background-color: rgba(23, 167, 4,.8);
     border-color: rgba(23, 167, 4,.8);
 }
-
+.btn-habilitar:link{
+    text-decoration: none;
+}
 .btn-habilitar:hover {
     color: #212529;
     background-color:rgba(20, 138, 4, 0.8);

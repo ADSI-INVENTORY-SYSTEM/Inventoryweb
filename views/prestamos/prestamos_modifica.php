@@ -76,7 +76,7 @@
 													<input type="date" class="form-control" id="final" name="final" value="<?php echo $data["prestamos"]["Fecha_Devolucion"]?>" />
 												</div>
 											
-												<button id="guardar" name="guardar" type="submit" class="btn btn-primary">Guardar</button>
+												<button id="guardar" name="guardar" type="submit" class="btn-guardar" >Guardar Cambios</button>
 											</div>
 										</div>		
 									</div>			

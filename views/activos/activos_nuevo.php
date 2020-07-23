@@ -177,7 +177,7 @@
 												</div>
 												<div id="form_alert"></div>
 										</div>
-										<button id="guardar" name="guardar" type="submit" class="btn btn-primary" style="float:left;">Guardar</button>
+										<button id="guardar" name="guardar" type="submit" class="btn-guardar" style="float:left;">Guardar</button>
 										</div>
 									</div>
 								</div>	
