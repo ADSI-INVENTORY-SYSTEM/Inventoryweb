@@ -119,6 +119,18 @@ img{
     border: 1px solid #428bca;
 }
 
+.btn-habilitar {
+    color: #212529;
+    background-color: rgba(23, 167, 4,.8);
+    border-color: rgba(23, 167, 4,.8);
+}
+
+.btn-habilitar:hover {
+    color: #212529;
+    background-color:rgba(20, 138, 4, 0.8);
+    border-color: rgba(20, 138, 4,0.8);
+}
+
 .prevPhoto {
     display: flex;
     justify-content: space-between;
