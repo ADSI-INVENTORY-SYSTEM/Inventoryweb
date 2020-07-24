@@ -51,14 +51,14 @@
 		
 		public function eliminar($id){
 			
-			$resultado = $this->db->query("DELETE FROM prestamo  WHERE idPrestamo = '$id'");
+			$resultado = $this->db->query("UPDATE prestamo SET Estado = 0 WHERE idPrestamo = '$id'");
 			$resultado=null;
 			
 		}
 		
 		public function get_prestamo($id)
 		{
-			$sql ="SELECT idPrestamo,Nombres,Nserial,Fecha_Entrega,Fecha_Devolucion FROM prestamo INNER JOIN activos ON Activos_idActivo = idActivo INNER JOIN usuarios ON Usuarios_idUsuario = idUsuario WHERE idPrestamo='$id' LIMIT 1 ";
+			$sql ="SELECT idPrestamo,Nombres,Nserial,Fecha_Entrega,Fecha_Devolucion, FROM prestamo INNER JOIN activos ON Activos_idActivo = idActivo INNER JOIN usuarios ON Usuarios_idUsuario = idUsuario WHERE idPrestamo='$id' LIMIT 1 ";
 			$resultado = $this->db->query($sql);
 			$sql=null;
 			$row = $resultado->fetch_assoc();

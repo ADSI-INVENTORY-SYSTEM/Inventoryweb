@@ -98,16 +98,16 @@ session_start();
 				<div class="paginador">
 					<ul>
 						<?php require("paginacion2.php"); ?>
-						<li><a href="?pagina=<?php echo 1; ?>">|<<</a></li>
-						<li><a href="?pagina=<?php echo $pagina-1; ?>"><<<</a></li>
+						<li><a href="?pagina=<?php echo 1; ?>"><<</a></li>
+						<li><a href="?pagina=<?php echo $pagina-1; ?>"><</a></li>
 						<?php
 						require("paginacion2.php");
 						for ($i=1; $i<=$total_pagina ; $i++) { 
 							echo '<li><a href="?pagina='.$i.'">'.$i.'</a></li>';
 						}  
 						?>
-						<li><a href="?pagina=<?php echo $pagina+1; ?>">>>></a></li>
-						<li><a href="?pagina=<?php echo $total_pagina; ?>">>>|</a></li>
+						<li><a href="?pagina=<?php echo $pagina+1; ?>">></a></li>
+						<li><a href="?pagina=<?php echo $total_pagina; ?>">>></a></li>
 					</ul>	
 				</div>
 			</section>

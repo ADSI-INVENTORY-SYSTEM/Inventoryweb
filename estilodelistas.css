@@ -127,6 +127,9 @@ img{
 .paginador a:link{
     text-decoration: none;
 }
+.paginador a:hover{
+    transform: scale(1.1,1.1);
+}
 
 .btn-habilitar {
     display: inline-block;
