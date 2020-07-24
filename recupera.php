@@ -63,7 +63,7 @@
             <form id="loginform" class="form-horizontal" role="form" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off">
               
               <div style="margin-bottom: 25px" class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <span class="input-group-addon"></span>
                 <input id="email" type="email" class="form-control" name="email" placeholder="Correo" required>                                        
               </div>
               

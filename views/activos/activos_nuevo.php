@@ -139,6 +139,7 @@
 											<label  class="mdl-textfield__label" for="addressAdmin">Serial</label>
 											<span class="mdl-textfield__error">Serial Invalido</span>
 										</div>
+										
 										</div>
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<h5 class="text-condensedLight">Descripción</h5>
