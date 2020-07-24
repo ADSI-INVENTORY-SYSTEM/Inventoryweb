@@ -38,10 +38,24 @@ img{
 
 }
 .btn-ver{
-    background: transparent;
+    display: flex;
+    background:none;
+    border-radius: 15px;
+    margin-top: 5px;
+    border-color: rgba(255, 255, 255, 0.233);
     color: #3F51B5;
+    text-decoration: none;
     float: right;
-
+}
+.linkcontra{
+    font-size: 12px;
+    padding: 15px;
+    padding-top: 10px;
+    text-align: center;
+    color: rgba(21, 42, 226, 0.842);
+}
+.btn-ver:hover{
+    transform: scale(1.1,1.2);
 }
 
 .btn-guardar{

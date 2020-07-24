@@ -40,7 +40,7 @@
 <html>
   <head>
     <title>Recuperar Contraseña</title>
-    
+    <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
     <script src="js/bootstrap.min.js" ></script>
