@@ -49,8 +49,16 @@
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-accounts"></i>
 									</div>
+									<?php
+										require_once "ConexionDatos.php";
+										$conex     = new conexiondatos();
+										$con1      = $conex->conectar();
+										$resultado = mysqli_query($con1, "SELECT count(idUsuario) as sumatotal from usuarios where Estado = 1");
+										$resultado1 = mysqli_fetch_array($resultado); 
+									?>
 									<div class="navLateral-body-cr hide-on-tablet">
-										Listar Usuarios
+										Listar Usuarios &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+										&nbsp; &nbsp; &nbsp;<?php echo $resultado1["sumatotal"]; ?>
 									</div>
 								</a>
 							</li>
@@ -59,8 +67,15 @@
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-refresh-sync-problem"></i>
 									</div>
+									<?php
+										require_once "ConexionDatos.php";
+										$conex     = new conexiondatos();
+										$con1      = $conex->conectar();
+										$resultado = mysqli_query($con1, "SELECT count(idUsuario) as sumatotaldos from usuarios where Estado = 0");
+										$resultado1 = mysqli_fetch_array($resultado); 
+									?>
 									<div class="navLateral-body-cr hide-on-tablet">
-										Usuarios inhabilitados
+										Usuarios inhabilitados &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<?php echo $resultado1["sumatotaldos"]; ?>
 									</div>
 								</a>
 							</li>
@@ -89,8 +104,16 @@
 									<div class="navLateral-body-cl">
 										<i class="fas fa-hdd"></i>
 									</div>
+									<?php
+										require_once "ConexionDatos.php";
+										$conex     = new conexiondatos();
+										$con1      = $conex->conectar();
+										$resultado = mysqli_query($con1, "SELECT count(idActivo) as sumatotaltres from activos");
+										$resultado1 = mysqli_fetch_array($resultado); 
+									?>
 									<div class="navLateral-body-cr hide-on-tablet">
-										Listar Activos
+										Listar Activos &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+										&nbsp; &nbsp; &nbsp; &nbsp;<?php echo $resultado1["sumatotaltres"]; ?>
 									</div>
 								</a>
 							</li>
