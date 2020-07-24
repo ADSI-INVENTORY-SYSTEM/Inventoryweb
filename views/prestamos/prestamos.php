@@ -59,6 +59,7 @@
                                 <td>Fecha Entrega</td>
                                 <td>Fecha Devolucion</td>
 								<td colspan="2">Acciones</td>
+								<td >Cambio E.</td>
 							</tr>
 						</thead>
 						
@@ -72,6 +73,7 @@
 								echo "<td>".$dato["Fecha_Devolucion"]."</td>";
 								echo "<td><a href='index3.php?c=Prestamos&a=modificar&id=".$dato["idPrestamo"]."' class='btn btn-warning'>Modificar</a></td>";
 								echo "<td><a href='index3.php?c=Prestamos&a=eliminar&id=".$dato["idPrestamo"]."' class='btn btn-danger'>Anular</a></td>";
+								echo "<td><a href='index2.php?c=Activos&a=actualizaestado&id=".$dato["Nserial"]."' class='btn-habilitar'>Estado</a></td>";
 								echo "</tr>";
 							}
 							?>

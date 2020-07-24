@@ -40,7 +40,7 @@
 													require_once "ConexionDatos.php";
 													$conex     = new conexiondatos();
 													$con1      = $conex->conectar();
-													$resultado = mysqli_query($con1, "SELECT * FROM activos WHERE Categoria_idcategoria =1  ORDER BY Nserial ASC");
+													$resultado = mysqli_query($con1, "SELECT * FROM activos WHERE Categoria_idcategoria =1 AND Estado_idEstado = 1  ORDER BY Nserial ASC");
 													$resultado1 = mysqli_num_rows($resultado);
 												?>
 												<div class="form-group">

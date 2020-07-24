@@ -90,6 +90,11 @@
             }
         }
 
+        public function actualizarestado($nserial){
+
+            $actua = $this->db->query("UPDATE activos SET Estado_idEstado = 4 where Nserial = '$nserial'");
+        }
+
         public function get_activo($id)
         {
             $sql = "SELECT idActivo,Nserial,Sede_idSede,Proveedor_idProveedor,Categoria_idcategoria,Estado_idEstado,NombreSede,NombreProveedor,NombreCategoria,NombreEstado,NombreActivo,Precio,Cantidad,Imagen,Ambiente FROM activos INNER JOIN sede ON Sede_idSede = idSede INNER JOIN proveedor ON Proveedor_idProveedor = idProveedor INNER JOIN categoria ON Categoria_idcategoria = idcategoria INNER JOIN estado ON Estado_idEstado = idEstado WHERE idActivo = '$id' LIMIT 1";

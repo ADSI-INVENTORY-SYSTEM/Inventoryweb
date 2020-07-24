@@ -79,6 +79,13 @@
 
         }
 
+        public function actualizaestado($nserial){
+            
+            $activos = new Activos_model();
+            $activos->actualizarestado($nserial);
+            $this->index();
+        }
+
         public function eliminar($id){
 			
 			$activos = new Activos_model();
