@@ -56,6 +56,7 @@
 								<td>ID</td>
 								<td>Serial del Activo</td>
 								<td>Nombre de Solicitante</td>
+								<td>Estado</td>
                                 <td>Fecha Entrega</td>
                                 <td>Fecha Devolucion</td>
 								<td colspan="2">Acciones</td>
@@ -64,11 +65,25 @@
 						</thead>
 						
 						<tbody>
-							<?php foreach($data["prestamos"] as $dato) {
+							<?php 
+								foreach($data["prestamos"] as $dato) {
+								$idd = $dato["idPrestamo"];	
+								require_once "ConexionDatos.php";
+								$conex     = new conexiondatos();
+								$con1      = $conex->conectar();
+								$resultado = mysqli_query($con1, "SELECT Estado From prestamo where idPrestamo = $idd");
+								$resultado1 = mysqli_fetch_array($resultado); 
+								if($resultado1["Estado"] == 1){
+									$estado = '<span class="activo">Activo</span>';
+								}
+								else{
+									$estado = '<span class="anulado">Anulado</span>';
+								}
 								echo "<tr>";
 								echo "<td>".$dato["idPrestamo"]."</td>";
 								echo "<td>".$dato["Nserial"]."</td>";
 								echo "<td>".$dato["Nombres"]."</td>";
+								echo "<td>".$estado."</td>";
 								echo "<td>".$dato["Fecha_Entrega"]."</td>";
 								echo "<td>".$dato["Fecha_Devolucion"]."</td>";
 								echo "<td><a href='index3.php?c=Prestamos&a=modificar&id=".$dato["idPrestamo"]."' class='btn btn-warning'>Modificar</a></td>";

@@ -47,6 +47,33 @@ img{
     text-decoration: none;
     float: right;
 }
+.activo{
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(23, 167, 4,.8);
+    border-color: rgba(23, 167, 4,.8);
+}
+.reparacion{
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 231, 17, 0.8);
+    border-color: rgba(255, 231, 17, 0.8);
+}
+.prestado{
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 73, 17, 0.8);
+    border-color: rgba(255, 73, 17, 0.8);
+}
+.anulado{
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: tomato;
+}
 .linkcontra{
     font-size: 12px;
     padding: 15px;

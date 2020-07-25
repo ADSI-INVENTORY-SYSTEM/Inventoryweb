@@ -73,14 +73,34 @@ session_start();
 						</thead>
 						
 						<tbody>
-							<?php foreach($data["activos"] as $dato) {
+							<?php 
+								foreach($data["activos"] as $dato) {
+								$idd = $dato["idActivo"];	
+								require_once "ConexionDatos.php";
+								$conex     = new conexiondatos();
+								$con1      = $conex->conectar();
+								$resultado = mysqli_query($con1, "SELECT NombreEstado From activos INNER JOIN estado ON Estado_idEstado = idEstado where idActivo = $idd");
+								$resultado1 = mysqli_fetch_array($resultado); 
+								if ($resultado1["NombreEstado"] == 'Disponible') {
+									$estado  = '<span class="activo">'.$resultado1["NombreEstado"].'</span>';
+									if ($dato["NombreEstado"] == 'Reparacion') {
+										$estado  = '<span class="reparacion">'.$resultado1["NombreEstado"].'</span>';
+										if ($dato["NombreEstado"] == 'De baja') {
+											$estado  = '<span class="anulado">'.$resultado1["NombreEstado"].'</span>';
+										}
+									}
+								}
+								else{
+									$estado  = '<span class="prestado">'.$resultado1["NombreEstado"].'</span>';
+								}
+								
 								echo "<tr>";
 								echo "<td>".$dato["idActivo"]."</td>";
 								echo "<td>".$dato["Nserial"]."</td>";
 								echo "<td>".$dato["NombreSede"]."</td>";
 								echo "<td>".$dato["NombreProveedor"]."</td>";
 								echo "<td>".$dato["NombreCategoria"]."</td>";
-								echo "<td>".$dato["NombreEstado"]."</td>";
+								echo "<td>".$estado."</td>";
 								echo "<td>".$dato["NombreActivo"]."</td>";
 								echo "<td>".$dato["Precio"]."</td>";
 								echo "<td>".$dato["Cantidad"]."</td>";
