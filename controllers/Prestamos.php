@@ -49,12 +49,11 @@
 		public function actualizar()
 		{
 			$id = $_POST['idPrestamo'];
-			$activo = $_POST['Activos_idActivo'];
 			$fechae = $_POST['inicial'];
 			$fechad = $_POST['final'];
 
 			$prestamos = new Prestamos_model();
-			$prestamos->modificar($id,$activo,$fechae,$fechad);
+			$prestamos->modificar($id,$fechae,$fechad);
 			$data["titulo"] = "Prestamos";
 			$this->index();
 		}

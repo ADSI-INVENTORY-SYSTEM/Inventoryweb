@@ -46,9 +46,9 @@
 		}
 
 
-		public function modificar($id,$activo,$fechae,$fechad){
+		public function modificar($id,$fechae,$fechad){
 			
-			$resultado = $this->db->query("UPDATE prestamo SET Activos_idActivo='$activo', Fecha_Entrega='$fechae', Fecha_Devolucion='$fechad' WHERE idPrestamo = '$id'");			
+			$resultado = $this->db->query("UPDATE prestamo SET  Fecha_Entrega='$fechae', Fecha_Devolucion='$fechad' WHERE idPrestamo = '$id'");			
 			$resultado=null;
 			//echo "UPDATE usuarios SET Sede_idSede=$sede, Rol_idRol=$rol, TipoIdentificacion_idTipoIdentificacion=$ti, Identificacion=$nidentificacion, Nombres='$nombre', Apellidos='$apellido', Direccion='$direccion', Telefono=$telefono, Correo='$correo', Usuario='$usuario', Ambiente=$ambiente WHERE idUsuario = '$id'";
 		}

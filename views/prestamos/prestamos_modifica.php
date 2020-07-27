@@ -37,32 +37,14 @@
 											<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 												<h5 class="text-condensedLight">Datos  Generales</h5>
 												<input type="hidden" id="idPrestamo" name="idPrestamo" value="<?php echo $data["prestamos"]["idPrestamo"]; ?>" />
-												<?php
-													require_once "ConexionDatos.php";
-													$conex     = new conexiondatos();
-													$con1      = $conex->conectar();
-													$resultado = mysqli_query($con1, "SELECT * FROM activos WHERE Categoria_idcategoria =1  ORDER BY Nserial ASC");
-													$resultado1 = mysqli_num_rows($resultado);
-												?>
+
 												<div class="form-group">
-												<label for="serial">Serial </label>
-												<select class="selecto" name="Activos_idActivo" id="serial">
-												<option value="<?php echo $data["prestamos"]["Activos_idActivo"]; ?>"selected><?php echo $data["prestamos"]["Nserial"];?></option>
-													<?php  
-														if ($resultado1 > 0) {
-															while($sede= mysqli_fetch_array($resultado)){
-													?>
-														<option value="<?php echo $sede["idActivo"]; ?>"><?php echo $sede["Nserial"]?></option>
-													<?php		
-														}
-													}
-													?>
-												</select>
+													<label for="inicial">Activo Solicitado: </label><br>
+													<label for="inicial"><?php echo $data["prestamos"]["Nserial"]?></label>
 												</div>
 
-
 												<div class="form-group">
-												<label for="inicial">Nombre Solicitante: </label><br>
+													<label for="inicial">Nombre Solicitante: </label><br>
 													<label for="inicial"><?php echo $data["prestamos"]["Nombres"]?></label>
 												</div>
 
