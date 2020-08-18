@@ -37,9 +37,11 @@
 				</script>';
 			}
 			else{
-				$resultado = $this->db->query("INSERT INTO prestamo(Activos_idActivo,Usuarios_idUsuario,Fecha_Entrega,Fecha_Devolucion) VALUES ($activo,'$usuario','$fechae','$fechad')");
+				
+				$resultado = $this->db->query("CALL prestamo($activo,$usuario,'$fechae','$fechad')");
 				echo '<script>
-				alert("Recuerde Precionar el botón de estado");
+				alert("Prestamo Registrado");
+				window.history.go(-1);
 				</script>';
 				
 			}
